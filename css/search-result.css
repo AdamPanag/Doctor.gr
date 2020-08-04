@@ -1,0 +1,73 @@
+html,body {
+	background-color: #E2E2E2;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+nav {
+	font-weight: bold;
+}
+
+.search-input {
+	width: 100%;
+	height: 40px;
+}
+
+#search-button {
+	height: 40px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#new-search-bar {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #C6D6DF;
+}
+
+#search-result-area {
+	padding-top: 40px;
+}
+
+.mini-profil {
+	padding: 10px;
+	background-color: white;
+	box-shadow: 5px 5px 4px #AAAAAA;
+}
+
+.doctor-address {
+	position: absolute;
+	font-size: 18px;
+	top: 50%;
+}
+
+.book-now-button {
+	width: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 2%;
+	left: 0;
+}
+
+.phone-number {
+	position: absolute;
+	bottom: 0;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
