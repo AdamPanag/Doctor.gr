@@ -1,3 +1,16 @@
+html,body {
+	background-color: #E2E2E2;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+nav {
+	font-weight: bold;
+}
+
 .search-input {
 	width: 100%;
 	height: 40px;
@@ -10,5 +23,21 @@
 #new-search-bar {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	background-color: #BDC9D7;
+	background-color: #C6D6DF;
 }
+
+#search-result-area {
+	padding-top: 40px;
+}
+
+.mini-profil {
+	padding: 10px;
+	background-color: white;
+	box-shadow: 5px 5px 4px #AAAAAA;
+}
+
+.book-now-button {
+
+	width: 100%;
+}
+
