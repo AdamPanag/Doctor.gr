@@ -18,6 +18,8 @@ nav {
 
 #search-button {
 	height: 40px;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 #new-search-bar {
@@ -36,8 +38,36 @@ nav {
 	box-shadow: 5px 5px 4px #AAAAAA;
 }
 
-.book-now-button {
+.doctor-address {
+	position: absolute;
+	font-size: 18px;
+	top: 50%;
+}
 
+.book-now-button {
 	width: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 2%;
+	left: 0;
+}
+
+.phone-number {
+	position: absolute;
+	bottom: 0;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
 }
 
