@@ -1,81 +1,51 @@
-let today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
-let selectYear = document.getElementById("year");
-let selectMonth = document.getElementById("month");
+var dt = new Date();
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function renderDate() {
 
-let monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
+	dt.setDate(1);
 
+	var day = dt.getDay();
+	var today = new Date();
+	var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1, 0).getDate();
 
-function next() {
-    currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    showCalendar(currentMonth, currentYear);
-}
+	var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
+	var months = [
+				"January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"]
 
-function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-}
+ 	document.getElementById("month").innerHTML = months[dt.getMonth()];
 
-function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
-}
+ 	var cells = "";
+ 	for (x = day; x > 0; x--) {
+		cells += "<div class='prev_date'>" + (prevDate - x + 1) + "</div>";
+	}
 
-function showCalendar(month, year) {
-
-    let firstDay = (new Date(year, month)).getDay();
-    let daysInMonth = 32 - new Date(year, month, 32).getDate();
-
-    let tbl = document.getElementById("calendar-body"); // body of the calendar
-
-    // clearing all previous cells
-    tbl.innerHTML = "";
-
-    // filing data about month and in the page via DOM.
-    monthAndYear.innerHTML = months[month] + " " + year;
-    selectYear.value = year;
-    selectMonth.value = month;
-
-    // creating all cells
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-        // creates a table row
-        let row = document.createElement("tr");
-
-        //creating individual cells, filing them up with data.
-        for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
-                let cell = document.createElement("td");
-                let cellText = document.createTextNode("");
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-            }
-            else if (date > daysInMonth) {
-                break;
-            }
-
-            else {
-                let cell = document.createElement("td");
-                let cellText = document.createTextNode(date);
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.classList.add("bg-info");
-                } // color today's date
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-                date++;
-            }
-
-
+	console.log(day);
+	for (i = 1; i <= endDate; i++) {
+		if (i == today.getDate() && dt.getMonth() == today.getMonth()) cells += "<div class='today'>" + i + "</div>";
+        else
+        	cells += "<div>" + i + "</div>";
         }
 
-        tbl.appendChild(row); // appending each row into calendar body.
-    }
+	document.getElementsByClassName("days")[0].innerHTML = cells;
+}
 
+
+function moveDate(para) {
+	if(para == "prev") {
+		dt.setMonth(dt.getMonth() - 1);
+	} else if(para == 'next') {
+		dt.setMonth(dt.getMonth() + 1);
+	}
+	renderDate();
 }
