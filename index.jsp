@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
-  <link href="css/homepage.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
 
 </head>
 <body>
@@ -49,21 +52,36 @@
 	<br><br><br><br><br><br><br><br>
 	<h1 id="main-slogan">Find your doctor and book an appointment!</h1>
 	<br><br>
-	<div class="row">
-		<div class="col-2"></div>
-		<div class="col-4">
-			<input type="text" name="specialty" width="100%" placeholder="Doctor's specialty">
+	<form action="search-result.jsp" method="POST">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-4">
+				<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
+				<datalist id="specialties">
+					<option value="Pathologos">
+					<option value="Ginaikologos">
+					<option value="Ourologos">
+				</datalist>
+				
+			</div>
+			<div class="col-3">
+				<input list="locations" name="location" class="search-input" placeholder="Where?">
+				<datalist id="locations">
+					<option value="Ampelokipoi">
+					<option value="Galatsi">
+					<option value="Ilion">
+					<option value="Gizi">
+					<option value="Vrilisia">
+				</datalist>
+			</div>
+			<div class="col-1">
+				<input type="submit" class="fsSubmitButton" value="Search">
+			</div>
+			<div class="col-2"></div>
 		</div>
-		<div class="col-3">
-			<input type="text" name="location" placeholder="Where?">
-		</div>
-		<div class="col-1">
-			<a href="search-result.html"><button type="button" class="btn btn-danger" id="search-button">Search</button></a>
-		</div>
-		<div class="col-2"></div>
-	</div>
+	</form>
+	
 </header>
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,19 +45,34 @@
 
 	<!-- New Search Bar -->
 	<div id="new-search-bar">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-4">
-				<input type="text" name="specialty" placeholder="Doctor's specialty" class="search-input">
+		<form action="" method="get">
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-4">
+					<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
+					<datalist id="specialties">
+						<option value="Pathologos">
+						<option value="Ginaikologos">
+						<option value="Ourologos">
+					</datalist>
+					
+				</div>
+				<div class="col-3">
+					<input list="locations" name="location" class="search-input" placeholder="Where?">
+					<datalist id="locations">
+						<option value="Ampelokipoi">
+						<option value="Galatsi">
+						<option value="Ilion">
+						<option value="Gizi">
+						<option value="Vrilisia">
+					</datalist>
+				</div>
+				<div class="col-1">
+					<input type="submit" class="btn btn-danger" value="New Search" id="search-button">
+				</div>
+				<div class="col-2"></div>
 			</div>
-			<div class="col-3">
-				<input type="text" name="location" placeholder="Where?" class="search-input">
-			</div>
-			<div class="col-2">
-				<button type="button" class="btn btn-danger" id="search-button">New Search</button>	
-			</div>
-			<div class="col-1"></div>
-		</div>
+		</form>
 	</div>
 
 	<!-- Search Results. Dsiplay the doctors that meet the search criteria -->
