@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+
+
 <html>
 <head>
   <link rel="stylesheet" href="css/sign in-up.css">
@@ -72,7 +77,7 @@
   <div class="centered">
 	<h2>New here?</h2>
     <p>Sign up now!!</p>
-	<a href="client.html"><button>Sign up</button></a>
+	<a href="client.jsp"><button>Sign up</button></a>
     
   </div>
 </div>
