@@ -36,6 +36,7 @@ nav {
 padding: 10px 15px 11px !important;
 font-size: 18px !important;
 background-color: #57d6c7;
+height: 45px;
 font-weight: bold;
 text-shadow: 1px 1px #57D6C7;
 color: #ffffff;
@@ -47,4 +48,5 @@ cursor: pointer;
 box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+align-items: baseline;
 }

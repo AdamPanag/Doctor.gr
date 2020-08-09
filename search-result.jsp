@@ -1,4 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="database.*, model.*, java.util.List" %>
+
+<%
+	String specialtySearched = request.getParameter("specialty");
+	String areaSearched = request.getParameter("area");
+
+	DoctorDAO doctorDAO = new DoctorDAO();
+	List<Doctor> doctors = doctorDAO.getAllDoctorsBySpecialtyAndArea(specialtySearched, areaSearched);
+%>
+
+	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,10 +57,11 @@
 
 	<!-- New Search Bar -->
 	<div id="new-search-bar">
-		<form action="" method="get">
+		<form action="search-result.jsp" method="get">
 			<div class="row">
 				<div class="col-2"></div>
 				<div class="col-4">
+					<label for="specialty"></label>
 					<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
 					<datalist id="specialties">
 						<option value="Pathologos">
@@ -58,6 +71,7 @@
 					
 				</div>
 				<div class="col-3">
+					<label for="location"></label>
 					<input list="locations" name="location" class="search-input" placeholder="Where?">
 					<datalist id="locations">
 						<option value="Ampelokipoi">
@@ -78,28 +92,42 @@
 	<!-- Search Results. Dsiplay the doctors that meet the search criteria -->
 	<div class="container" id="search-result-area">
 		<!-- Doctor's profile -->
-		<div class="row">
+
+		<div class="row doctor">
 			<div class="col-2"></div>
 			<div class="col-8">
 				<div class="container">
+<%	
+	if(doctors.size() == 0) {
+%>
+		<h4 id="not-found">There are no <%=specialtySearched%>s in <%=areaSearched%>!</h4>
+<%
+	} else {
+		for(Doctor doctor: doctors) {
+%>
 					<div class="row mini-profil">
 						<div class="col-3">
 							<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
 						</div>
 						<div class="col-5">
-							<h5>Adam Panagiotidis</h5>
-							<p>Pathologist</p>
-							<p class="phone-number">+30 6984417433</p>
+							<h5><%=doctor.getFullName()%></h5>
+							<p><%=doctor.getSpecialty()%></p>
+							<p class="phone-number"><%=doctor.getPhoneNumber()%></p>
 						</div>
 						<div class="col-4 book-now-button-parent">
-							<p class="doctor-address">Athens, Ekali</p>
+							<p class="doctor-address"><%=doctor.getAddress()%></p>
 							<button type="button" class="book-now-button btn btn-primary">Book now</button>
 						</div>
 					</div>
+<%		}
+	}
+%>
 				</div>
 			</div>
 			<div class="col-2"></div>
 		</div>
+
+		<!-- end of Doctor's profile -->
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

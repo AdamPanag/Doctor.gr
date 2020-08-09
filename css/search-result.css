@@ -37,6 +37,7 @@ nav {
 	padding: 10px;
 	background-color: white;
 	box-shadow: 5px 5px 4px #AAAAAA;
+	margin-bottom: 25px;;
 }
 
 .doctor-address {
@@ -70,5 +71,13 @@ nav {
 .row > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+
+.row .doctor{
+	margin-bottom: 30px;
+}
+
+#not-found {
+	text-align: center;
 }
 
