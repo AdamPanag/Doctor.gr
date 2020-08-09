@@ -61,7 +61,7 @@
                                 <div class="profile-name">Adam Panagiotidis</div>
                                 <div class="profile-designation">Pathologist</div>
                                 <ul class="profile-info-list">
-                                    <a href="doctor-profile.html"><button type="button" class="profile-info-list-item" id="button">Settings</button></a>
+                                    <a href="doctor-profile.jsp"><button type="button" class="profile-info-list-item" id="button">Settings</button></a>
                                     <button type="button" class="profile-info-list-item" id="button">My Appointments</button>
                                     <button type="button" class="profile-info-list-item" id="button">Log Out</button>
                                 </ul>
