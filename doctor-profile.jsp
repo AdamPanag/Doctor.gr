@@ -51,19 +51,16 @@
                             <ul class="about">
                                 <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail">Adam</span><a href="" class="about-item-edit">Edit</a></li>
                                 <li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail">Panagiotidis</span> <a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail">adampanag</span><a href="" class="about-item-edit">Edit</a></li>
                                 <li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail">**********</span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Occupation:</span><span class="about-item-detail">Pathologist</span><a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Specialty:</span><span class="about-item-detail">Pathologist</span><a href="" class="about-item-edit">Edit</a></li>
                             </ul>
                             <p class="card-description">Contact Information</p>
                             <ul class="about">
-                                <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone:</span><span class="about-item-detail">+30 6984417433</span><a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail">+30 6984417433</span><a href="" class="about-item-edit">Edit</a></li>
                                 <li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail">adampanag06@gmail.com</span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Athens, Ekali</a></span> <a href="" class="about-item-edit">Edit</a></li>
-                            </ul>
-                            <p class="card-description">Education</p>
-                            <ul class="about">
-                                <li class="about-items"><i class="mdi mdi-cake icon-sm "></i><span class="about-item-name">Master's Degree:</span><span class="about-item-detail">British School of Medicine</span><a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Bachelor's Degree:</span><span class="about-item-detail">National and Kapodistrian University of Athens</span> <a href="" class="about-item-edit">Edit</a></li>       
+                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Kifisia 35, Athens Greece</a></span> <a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Area:</span><span class="about-item-detail"><a href="">Kifisia</a></span> <a href="" class="about-item-edit">Edit</a></li>
                             </ul>
                         </div>
                     </div>
