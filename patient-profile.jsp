@@ -34,7 +34,7 @@
 				</ul>
 				<p class="card-description">Contact Information</p>
 				<ul class="about">
-					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone:</span><span class="about-item-detail">+30 6983624617</span><a href="" class="about-item-edit">Edit</a></li>
+					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail">+30 6983624617</span><a href="" class="about-item-edit">Edit</a></li>
 					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail">katerinatakidi@gmail.com</span> <a href="" class="about-item-edit">Edit</a></li>
 					<li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Athens, Ilion</a></span> <a href="" class="about-item-edit">Edit</a></li>
 				</ul>

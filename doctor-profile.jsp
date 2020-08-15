@@ -59,7 +59,7 @@
                             <ul class="about">
                                 <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail">+30 6984417433</span><a href="" class="about-item-edit">Edit</a></li>
                                 <li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail">adampanag06@gmail.com</span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Kifisia 35, Athens Greece</a></span> <a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Kifisia 35</a></span> <a href="" class="about-item-edit">Edit</a></li>
                                 <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Area:</span><span class="about-item-detail"><a href="">Kifisia</a></span> <a href="" class="about-item-edit">Edit</a></li>
                             </ul>
                         </div>
