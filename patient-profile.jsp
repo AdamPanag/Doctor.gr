@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	
-	<title>patientprofile</title>
+	<title>Doctor.gr | My Profile</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,34 +17,7 @@
 <body onload="renderDate()">
 
 	<!-- Navigation Bar-->
-	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-		<div class="container">
-			<a class="navbar-brand" href="#">Doctor.gr</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About us</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact us</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Katerina Takidi</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item active" href="#">Settings</a>
-				          	<a class="dropdown-item" href="#">Log Out</a>
-		        		</div>
-		        	</li>
-		        </ul>
-		    </div>
-		</div>
-	</nav>
+	<%@ include file="navbar-patient.jsp" %>
 
 	<!-- Page Content -->
 	<div class="col-md-8 grid-margin stretch-card">
