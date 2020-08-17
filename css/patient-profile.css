@@ -72,7 +72,7 @@ a.about-item-edit {
   display: flex;
 }
 
-.calendar {
+.wrapper .calendar {
   width: 770px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);

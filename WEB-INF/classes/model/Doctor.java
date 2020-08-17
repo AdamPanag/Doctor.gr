@@ -1,17 +1,17 @@
 package model;
 
 public class Doctor extends User {
-    
-//    private int id;
-//    private String name;
-//    private String surname;
-//    private String username;
-//    private String password;
-//    private String email;
-    private String specialty;
-    private String area;
-    private String address;
-    private String phoneNumber;
+
+//    int id;
+//    String name;
+//    String surname;
+//    String username;
+//    String password;
+//    String email;
+    String specialty;
+    String area;
+    String address;
+    String phoneNumber;
 
     public Doctor(int id, String name, String surname, String username, String password, String email,
     		String specialty, String area, String address, String phoneNumber) {
@@ -21,6 +21,8 @@ public class Doctor extends User {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
+    public Doctor() {}
 
 	public String getSpecialty() {
 		return specialty;
@@ -53,5 +55,21 @@ public class Doctor extends User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-    
+
+	@Override
+				public String toString() {
+
+					return "<ul>"
+							+ "<li>name= " + name + "</li>"
+							+ "<li>surname= " + surname + "</li>"
+							+ "<li>username= " + username + "</li>"
+							+ "<li>password= " + password + "</li>"
+							+ "<li>specialty= " + specialty + "</li>"
+							+ "<li>phoneNumber= " + phoneNumber + "</li>"
+							+ "<li>email= " + email + "</li>"
+							+ "<li>address= " + address + "</li>"
+							+ "<li>area= " + area + "</li>"
+							+ "</ul>";
+	}
+
 }
