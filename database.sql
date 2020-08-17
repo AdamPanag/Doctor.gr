@@ -1,6 +1,7 @@
 DROP TABLE specialties, areas;
 DROP TABLE patients;
 DROP TABLE doctors;
+DROP TABLE bookings;
 
 CREATE TABLE `specialties` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -39,6 +40,15 @@ CREATE TABLE `patients` (
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `bookings` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `doctorId` varchar(255) NOT NULL,
+  `patientId` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `hour` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO `specialties` VALUES (1,'Pathologist'),(2,'Pediatrician'),(3,'Urologist');
