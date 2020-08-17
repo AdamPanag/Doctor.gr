@@ -23,7 +23,7 @@
 <body>
 
 <!-- Navigation Bar-->
-<%@ include file="navbar-search-default.jsp" %>
+<%@ include file="navbar-homepage-default.jsp" %>
 
 <!-- Page Content -->
 <header id="home-header">

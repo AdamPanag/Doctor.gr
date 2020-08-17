@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="database.*, model.*, java.util.*" %>
+
+<%
+	PatientDAO patientDAO = new PatientDAO();
+	Patient patient = patientDAO.getPatientInfo();
+%>
 
 <!doctype html>
 <html lang="en">
@@ -27,17 +33,23 @@
 				<hr>
 				<p class="card-description">Personal Information</p>
 				<ul class="about">
-					<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail">Katerina</span><a href="" class="about-item-edit">Edit</a></li>
-					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail">Takidi</span> <a href="" class="about-item-edit">Edit</a></li>
-					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail">**********</span> <a href="" class="about-item-edit">Edit</a></li>
-					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">SSN:</span><span class="about-item-detail">1234567890</span> <a href="" class="about-item-edit">Edit</a></li>
+					<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=patient.getName()%></span></li>
+					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=patient.getSurname()%></span></li>
+					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=patient.getUsername()%></span></li>
+					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=patient.getPassword()%></span></li>
+					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">SSN:</span><span class="about-item-detail"><%=patient.getSsn()%></span></li>
 				</ul>
 				<p class="card-description">Contact Information</p>
 				<ul class="about">
-					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone:</span><span class="about-item-detail">+30 6983624617</span><a href="" class="about-item-edit">Edit</a></li>
-					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail">katerinatakidi@gmail.com</span> <a href="" class="about-item-edit">Edit</a></li>
-					<li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href="">Athens, Ilion</a></span> <a href="" class="about-item-edit">Edit</a></li>
+					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail"><%=patient.getPhoneNumber()%></span></li>
+					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=patient.getEmail()%></span></li>
 				</ul>
+				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" 
+							class="btn btn-xs btn-default btn-block"
+							title="Edit">
+							<span class="glyphicon glyphicon-edit"></span> Edit
+						</a>
+						<button type="button" class="btn btn-xs btn-danger btn-block"
 			</div>
 		</div>
 		<div class="card">

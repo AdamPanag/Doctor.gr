@@ -30,7 +30,7 @@
 
 <body>
 	<!-- Navigation Bar-->
-	<%@ include file="navbar-search-default.jsp" %>
+	<%@ include file="navbar-default.jsp" %>
 
 	<!-- New Search Bar -->
 	<div id="new-search-bar">
