@@ -19,7 +19,7 @@ public class SpecialtyDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String sqlQuery = "SELECT * FROM specialties ORDER BY name DESC;";
+		String sqlQuery = "SELECT * FROM specialties ORDER BY name ASC;";
 		
 		try {		
 			con = db.getConnection(); //get Connection

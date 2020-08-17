@@ -90,7 +90,7 @@
 						</div>
 						<div class="col-4 book-now-button-parent">
 							<p class="doctor-address"><%=doctor.getAddress()%></p>
-							<button type="button" class="book-now-button btn btn-primary">Book now</button>
+							<a type="submit" class="book-now-button btn btn-primary" href="<%=request.getContextPath() %>/book-now.jsp?doctorId=<%=doctor.getId()%>">Book now</a>
 						</div>
 					</div> <!-- end of Doctor's profile -->
 <%		}
