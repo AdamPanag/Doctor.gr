@@ -55,6 +55,7 @@ public class DoctorDAO {
 		}
 
 	}
+	
 
 	public Doctor getDoctorById(int id) throws Exception {
 		Doctor doctor = new Doctor();

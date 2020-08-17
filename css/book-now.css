@@ -1,0 +1,33 @@
+body {
+    background-color: white;
+    padding-top: 54px;
+}
+
+nav {
+	background-color: #E2E2E2;
+	font-weight: bold;
+}
+
+#doctor-info-schedule {
+	margin-top: 75px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.time {
+	display: block;
+	padding: 7px;
+	color: #3497db;
+	text-align: center;
+}
+
+.no-gutters {
+  padding-right: 0;
+  padding-left: 0;
+ }
+
+ .doctor-info {
+ 	margin-top: 40px;
+ 	padding: 10px;
+ 	box-shadow: 0 0 10px rgba(0, 0 , 0, 0.2);
+ }

@@ -6,7 +6,12 @@
 	String areaSearched = request.getParameter("area");
 
 	DoctorDAO doctorDAO = new DoctorDAO();
+	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
+	AreaDAO areaDAO = new AreaDAO();
+
 	List<Doctor> doctors = doctorDAO.getAllDoctorsBySpecialtyAndArea(specialtySearched, areaSearched);
+	List<Specialty> specialties = specialtyDAO.getAllSpecialties();
+	List<Area> areas = areaDAO.getAllAreas();
 %>
 
 	
@@ -36,21 +41,19 @@
 					<label for="specialty"></label>
 					<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
 					<datalist id="specialties">
-						<option value="Pathologos">
-						<option value="Ginaikologos">
-						<option value="Ourologos">
+<% 	for(Specialty speciaclty: specialties) { %>
+						<option value="<%=speciaclty.getName() %>">			
+<% 	} %>
 					</datalist>
 					
 				</div>
 				<div class="col-3">
-					<label for="location"></label>
-					<input list="locations" name="location" class="search-input" placeholder="Where?">
-					<datalist id="locations">
-						<option value="Ampelokipoi">
-						<option value="Galatsi">
-						<option value="Ilion">
-						<option value="Gizi">
-						<option value="Vrilisia">
+					<label for="area"></label>
+					<input list="areas" name="area" class="search-input" placeholder="Where?">
+					<datalist id="areas">
+<% 	for(Area area: areas) { %>
+						<option value="<%=area.getName() %>">
+<% } %>
 					</datalist>
 				</div>
 				<div class="col-1">
@@ -64,8 +67,6 @@
 
 	<!-- Search Results. Dsiplay the doctors that meet the search criteria -->
 	<div class="container" id="search-result-area">
-		<!-- Doctor's profile -->
-
 		<div class="row doctor">
 			<div class="col-2"></div>
 			<div class="col-8">
@@ -77,7 +78,7 @@
 <%
 	} else {
 		for(Doctor doctor: doctors) {
-%>
+%>					<!-- Doctor's profile -->
 					<div class="row mini-profil">
 						<div class="col-3">
 							<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
@@ -89,9 +90,9 @@
 						</div>
 						<div class="col-4 book-now-button-parent">
 							<p class="doctor-address"><%=doctor.getAddress()%></p>
-							<button type="button" class="book-now-button btn btn-primary">Book now</button>
+							<a type="submit" class="book-now-button btn btn-primary" href="<%=request.getContextPath() %>/book-now.jsp?doctorId=<%=doctor.getId()%>">Book now</a>
 						</div>
-					</div>
+					</div> <!-- end of Doctor's profile -->
 <%		}
 	}
 %>
@@ -100,12 +101,13 @@
 			<div class="col-2"></div>
 		</div>
 
-		<!-- end of Doctor's profile -->
+		
 	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+	<script type="text/javascript" src="js/search.js"></script>
+	
 </body>
 </html>

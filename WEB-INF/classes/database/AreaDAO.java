@@ -19,7 +19,7 @@ public class AreaDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String sqlQuery = "SELECT * FROM areas ORDER BY name DESC;";
+		String sqlQuery = "SELECT * FROM areas ORDER BY name ASC;";
 		
 		try {		
 			con = db.getConnection(); //get Connection

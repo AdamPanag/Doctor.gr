@@ -21,7 +21,7 @@ public class Doctor extends User {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
-
+    
     public Doctor() {}
 
 	public String getSpecialty() {
