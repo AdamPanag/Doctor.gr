@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="css/homepage.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
 </head>
 
 <html>
@@ -12,7 +12,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
@@ -21,15 +21,27 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">Contact us</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Login/Register
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="client sign-up-in.jsp">Patient</a>
-								<a class="dropdown-item" href="doctor sign-up-in.jsp">Doctor</a>
-							</div>
-						</li>
+						<%	
+							if(logedIn == true) { %>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=patient.getFullName()%><span class="sr-only">(current)</span></a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="patient-profile.jsp">Settings</a>
+										<a class="dropdown-item" href="index.jsp">Log Out</a>
+									</div>
+								</li>
+							<%} else { %>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Login/Register
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<a class="dropdown-item" href="client sign-up-in.jsp">Patient</a>
+										<a class="dropdown-item" href="doctor sign-up-in.jsp">Doctor</a>
+										</div>
+								</li>
+		
+							<% } %>					
 					</ul>
 				</div>
 			</div>

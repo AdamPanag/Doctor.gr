@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="css/homepage.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
 </head>
 
 <html>
@@ -21,11 +21,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact us</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile<span class="sr-only">(current)</span></a>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=doctor.getFullName()%><span class="sr-only">(current)</span></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item active" href="doctor-profile.jsp">Settings</a>
-                            <a class="dropdown-item" href="my-appointments_doctor.jsp">My Appointments</a>
+                            <a class="dropdown-item" href="doctor-profile.jsp">Settings</a>
+                            <a class="dropdown-item active" href="my-appointments_doctor.jsp">My Appointments</a>
                             <a class="dropdown-item" href="index.jsp">Log Out</a>
                         </div>
                     </li>
