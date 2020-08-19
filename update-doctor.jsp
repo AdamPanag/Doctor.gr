@@ -15,7 +15,10 @@
 	DoctorDAO doctorDAO = new DoctorDAO();
 	Doctor doctor = new Doctor('1', name, surname, username, password, specialty, phone, email, address, area);
 
+	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
+	AreaDAO areaDAO = new AreaDAO();
+
 	doctorDAO.updateDoctor(doctor);
 %>
 
-<jsp:forward page="edit-patient.jsp"/>
+<jsp:forward page="doctor-profile.jsp"/>

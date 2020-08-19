@@ -55,7 +55,6 @@ public class DoctorDAO {
 		}
 
 	}
-	
 
 	public Doctor getDoctorById(int id) throws Exception {
 		Doctor doctor = new Doctor();
@@ -151,8 +150,8 @@ public class DoctorDAO {
 				Connection con = null;
 
 				//Define the SQL statement (to be executed)
-				String sql= "UPDATE doctors" +
-							"SET name=?, surname=?, username=?, password=?, specialty=?, phoneNumber=?, email=?, address=?, area=?" +
+				String sql= "UPDATE doctors " +
+							"SET name=?, surname=?, username=?, password=?, specialty=?, phoneNumber=?, email=?, address=?, area=? " +
 							"WHERE id=1;";
 
 

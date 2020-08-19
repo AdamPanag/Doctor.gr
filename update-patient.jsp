@@ -7,16 +7,15 @@
 	String username = request.getParameter("patient_username");
 	String password = request.getParameter("patient_password");
 	String ssn = request.getParameter("patient_ssn");
-	String phone = request.getParameter("patient_phone");
 	String email = request.getParameter("patient_email");
 
 	PatientDAO patientDAO = new PatientDAO();
-	Patient patient = new Patient('1', name, surname, username, password, ssn, phone, email);
+	Patient patient = new Patient('1', name, surname, username, password, ssn, email);
 
 	patientDAO.updatePatient(patient);
 %>
 
-<jsp:forward page="edit-patient.jsp"/>
+<jsp:forward page="patient-profile.jsp"/>
 
 
 

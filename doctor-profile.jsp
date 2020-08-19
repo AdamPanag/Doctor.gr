@@ -55,19 +55,20 @@
                             <hr>
                             <p class="card-description">Personal Information</p>
                             <ul class="about">
-                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=doctor.getName()%></span><a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=doctor.getSurname()%></span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=doctor.getUsername()%></span><a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=doctor.getPassword()%></span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Specialty:</span><span class="about-item-detail"><%=doctor.getSpecialty()%></span><a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=doctor.getName()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=doctor.getSurname()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=doctor.getUsername()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=doctor.getPassword()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Specialty:</span><span class="about-item-detail"><%=doctor.getSpecialty()%></span></li>
                             </ul>
                             <p class="card-description">Contact Information</p>
                             <ul class="about">
-                                <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail"><%=doctor.getPhoneNumber()%></span><a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=doctor.getEmail()%></span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href=""><%=doctor.getAddress()%></a></span> <a href="" class="about-item-edit">Edit</a></li>
-                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Area:</span><span class="about-item-detail"><a href=""><%=doctor.getArea()%></a></span> <a href="" class="about-item-edit">Edit</a></li>
+                                <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail"><%=doctor.getPhoneNumber()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=doctor.getEmail()%></span></li>
+                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href=""><%=doctor.getAddress()%></a></span></li>
+                                <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Area:</span><span class="about-item-detail"><a href=""><%=doctor.getArea()%></a></span></li>
                             </ul>
+                            <a href="/ismgroup96/edit-doctor.jsp?doctorId='1'" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
                         </div>
                     </div>
                 </div>

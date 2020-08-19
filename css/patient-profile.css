@@ -33,6 +33,7 @@ p {
   background-clip: border-box;
   border: 2px solid #e3f2fd;
   border-radius: 0;
+  bottom: 10px;
 }
 
 .card .card-description {
@@ -59,7 +60,7 @@ color:#607d8b;
 span.about-item-name {
     width: 100px;
     display: inline-flex;
-	    margin-left: 10px;
+    margin-left: 10px;
 }
 
 a.about-item-edit {
@@ -73,7 +74,10 @@ a.about-item-edit {
 }
 
 .wrapper .calendar {
-  width: 770px;
+  left: 20%;
+  bottom: 20px;
+  width: 61%;
+  position: center;
   background-color: #fff;
   box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
 }

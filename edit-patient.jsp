@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="css/edit-patient.css">
+    <link rel="stylesheet" type="text/css" href="css/edit-profile.css">
  
 </head>  
 <body>
 
-		<div class="row">
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
 			<div class="col-xs-12 col-md-10 col-lg-8">				
 
 				<form action="/ismgroup96/update-patient.jsp" method="POST" class="form-horizontal">						
@@ -48,7 +50,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="username" class="col-sm-2 control-label">Password: </label>
+						<label for="password" class="col-sm-2 control-label">Password: </label>
 						<div class="col-sm-10">
 							<input type="password" id="password" name="patient_password" value="<%= patient.getPassword()%>" class="form-control" placeholder="password">
 						</div>
@@ -58,13 +60,6 @@
 						<label for="username" class="col-sm-2 control-label">SSN: </label>
 						<div class="col-sm-10">
 							<input type="text" id="ssn" name="patient_ssn" value="<%= patient.getSsn()%>" class="form-control" placeholder="ssn">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="phone" class="col-sm-2 control-label">Phone Number: </label>
-						<div class="col-sm-10">
-							<input type="text" id="phone" name="patient_phone" value="<%= patient.getPhoneNumber()%>" class="form-control" placeholder="phone">
 						</div>
 					</div>
 
@@ -94,6 +89,8 @@
 
 			</div>
 		</div>
+		</div>
+	</div>
 
 	</div>
 

@@ -36,22 +36,17 @@
 					<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=patient.getName()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=patient.getSurname()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=patient.getUsername()%></span></li>
-					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=patient.getPassword()%></span></li>
+					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail" type="password"><%=patient.getPassword()%></span></li>
 					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">SSN:</span><span class="about-item-detail"><%=patient.getSsn()%></span></li>
 				</ul>
 				<p class="card-description">Contact Information</p>
 				<ul class="about">
-					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail"><%=patient.getPhoneNumber()%></span></li>
 					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=patient.getEmail()%></span></li>
 				</ul>
-				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" 
-							class="btn btn-xs btn-default btn-block"
-							title="Edit">
-							<span class="glyphicon glyphicon-edit"></span> Edit
-						</a>
-						<button type="button" class="btn btn-xs btn-danger btn-block"
+				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
 			</div>
 		</div>
+
 		<div class="card">
 			<div class="card-body">
 				<p class="card-tittle font-weight-bold">My Appointments</p>

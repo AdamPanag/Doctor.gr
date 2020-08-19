@@ -13,15 +13,15 @@ public class Doctor extends User {
     String address;
     String phoneNumber;
 
-    public Doctor(int id, String name, String surname, String username, String password, String email,
-    		String specialty, String area, String address, String phoneNumber) {
+    public Doctor(int id, String name, String surname, String username, String password, String specialty,
+    				String phoneNumber, String email, String address, String area) {
         super(id, name, surname, username, password, email);
         this.specialty = specialty;
         this.area = area;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
-    
+
     public Doctor() {}
 
 	public String getSpecialty() {

@@ -31,7 +31,7 @@ public class PatientDAO {
 			while (rs.next()) {
 				patient = new Patient(rs.getInt("id"), rs.getString("name"),
 						rs.getString("surname"), rs.getString("username"), rs.getString("password"),
-						rs.getString("ssn"), rs.getString("phoneNumber"), rs.getString("email"));
+						rs.getString("ssn"), rs.getString("email"));
 			}
 
 
@@ -60,8 +60,8 @@ public class PatientDAO {
 			Connection con = null;
 
 			//Define the SQL statement (to be executed)
-			String sql= "UPDATE patients" +
-						"SET name=?, surname=?, username=?, password=?, ssn=?, phoneNumber=?, email=?" +
+			String sql= "UPDATE patients " +
+						"SET name=?, surname=?, username=?, password=?, ssn=?, email=? " +
 						"WHERE id=1;";
 
 
@@ -80,8 +80,8 @@ public class PatientDAO {
 				stmt.setString(3, patient.getUsername());
 				stmt.setString(4, patient.getPassword());
 				stmt.setString(5, patient.getSsn() );
-				stmt.setString(6, patient.getPhoneNumber());
-				stmt.setString(7, patient.getEmail());
+				//stmt.setString(6, patient.getPhoneNumber());
+				stmt.setString(6, patient.getEmail());
 
 				//execute the SQL statement (INSERT)
 				stmt.executeUpdate();
@@ -101,6 +101,6 @@ public class PatientDAO {
 			}
 
 
-	} // End of updateStudent
+	} // End of updatePatient
 
 }
