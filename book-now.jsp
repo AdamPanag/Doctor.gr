@@ -2,6 +2,8 @@
 <%@ page import="database.*, model.*, java.util.*, java.text.*, java.time.format.*, java.time.*, java.lang.Integer" %>
 
 <%  
+	Patient patient = null;
+	patient = (Patient) session.getAttribute("patient-database-obj");
     DoctorDAO doctorDAO = new DoctorDAO();
     int doctorId = Integer.parseInt(request.getParameter("doctorId"));
     Doctor doctor = doctorDAO.getDoctorById(doctorId);

@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.List" %>
 
-<%
+<%	
+	boolean logedIn = false;
+	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+
+	if(patient != null) {
+		logedIn = true;
+	}
+
+
 	String specialtySearched = request.getParameter("specialty");
 	String areaSearched = request.getParameter("area");
 
@@ -90,7 +98,19 @@
 						</div>
 						<div class="col-4 book-now-button-parent">
 							<p class="doctor-address"><%=doctor.getAddress()%></p>
-							<a type="submit" class="book-now-button btn btn-primary" href="<%=request.getContextPath() %>/book-now.jsp?doctorId=<%=doctor.getId()%>">Book now</a>
+
+						<% if(logedIn == true) { %>
+
+							<a type="submit" class="book-now-button btn btn-primary" href="http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=<%=doctor.getId()%>">Book now</a>
+
+						<% } else {%>
+
+							<a type="submit" class="book-now-button btn btn-primary unable-btn" onclick="loginFirstPopUp()">Book now
+								<span class="popuptext myPopup">Log in first in order to book an appointment</span>
+							</a>
+
+						<% } %>
+
 						</div>
 					</div> <!-- end of Doctor's profile -->
 <%		}
@@ -107,7 +127,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/searchResult.js"></script>
 	
 </body>
 </html>

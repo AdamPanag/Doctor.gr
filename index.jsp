@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.List" %>
 
-<%
+<%	
+	boolean logedIn = false;
+	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+
+	if( patient != null) {
+		logedIn = true;
+	}
+
 	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
 	AreaDAO areaDAO = new AreaDAO();
 	List<Specialty> specialties = specialtyDAO.getAllSpecialties();
