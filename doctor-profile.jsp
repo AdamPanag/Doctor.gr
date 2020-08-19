@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
 
-    <title>Dοctor.gr | My Profile</title>
+    <title>Doctor.gr | My Profile</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,7 +22,7 @@
 <body>
 
     <!-- Navigation Bar-->
-    <%@ include file="navbar-doctor.jsp" %>
+    <%@ include file="navbar-doctor-settings.jsp" %>
 
     <!-- Page Content -->
     <div class="main-panel">

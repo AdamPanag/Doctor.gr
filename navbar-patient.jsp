@@ -25,7 +25,9 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=patient.getFullName()%><span class="sr-only">(current)</span></a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item active" href="patient-profile.jsp">Settings</a>
-				          	<a class="dropdown-item" href="index.jsp">Log Out</a>
+							<% if(session.getAttribute("patient-database-obj") != null) { %>
+								<a class ="dropdown-item" href="<%= request.getContextPath() %>/logout-patient.jsp"><span class="sr-only" href="index.jsp"></span> Log out</a>
+							<% } %>	
 		        		</div>
 		        	</li>
 		        </ul>
