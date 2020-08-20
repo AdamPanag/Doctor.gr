@@ -16,19 +16,19 @@ p {
 .card {
 	display: flex;
 	top: 70px;
-  margin-bottom: 20px;
+  	margin-bottom: 20px;
 	left: 25%;
 	float: center;
 	width: 100%;
 	text-align: left;
-  position: relative;
-  flex-direction: column;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 2px solid #e3f2fd;
-  border-radius: 0;
-  bottom: 10px;
+	position: relative;
+	flex-direction: column;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 2px solid #e3f2fd;
+	border-radius: 0;
+	bottom: 10px;
 }
 
 .card .card-description {
@@ -150,4 +150,29 @@ a.about-item-edit {
 #month {
   font-size: 40px;
   font-weight: 500;
+}
+
+.mini-profil {
+	padding: 10px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0 , 0, 0.4);
+	margin-bottom: 25px;;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row .appointment{
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
