@@ -3,11 +3,6 @@ body {
     padding-top: 54px;
 }
 
-nav {
-	background-color: #E2E2E2;
-	font-weight: bold;
-}
-
 #doctor-info-schedule {
 	margin-top: 75px;
 	margin-left: 5%;
@@ -16,7 +11,7 @@ nav {
 
 .time {
 	display: block;
-	padding: 7px;
+	height: 30px;
 	color: #3497db;
 	text-align: center;
 }
@@ -30,4 +25,16 @@ nav {
  	margin-top: 40px;
  	padding: 10px;
  	box-shadow: 0 0 10px rgba(0, 0 , 0, 0.2);
+ }
+
+ .day {
+ 	display: block;
+ 	text-align: center;
+ }
+
+ .booked {
+ 	color: red;
+ 	display: block;
+ 	height: 30px;
+ 	text-align: center;
  }
