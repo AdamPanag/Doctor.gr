@@ -7,11 +7,6 @@ html,body {
     background-color: #E2E2E2;
 }
 
-nav {
-	background-color: #e3f2fd;
-	font-weight: bold;
-}
-
 .card {
 	position: relative;
     top: 80px;
