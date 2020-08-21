@@ -2,6 +2,8 @@
 <%@ page import="database.*, model.*, java.util.*, java.text.*, java.time.format.*, java.time.*, java.lang.Integer" %>
 
 <%  
+	Patient patient = null;
+	patient = (Patient) session.getAttribute("patient-database-obj");
     DoctorDAO doctorDAO = new DoctorDAO();
     int doctorId = Integer.parseInt(request.getParameter("doctorId"));
     Doctor doctor = doctorDAO.getDoctorById(doctorId);
@@ -30,6 +32,10 @@
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		Calendar day = Calendar.getInstance();
 		day.setTime(sdf.parse(dt));
+
+		BookingDAO bookingDAO = new BookingDAO();
+		ArrayList<Booking> bookingsBooked = bookingDAO.getAllBookingsByDoctorId(doctorId);
+		int in = 0;
 	%>
 	
 	<div id="doctor-info-schedule">
@@ -43,36 +49,53 @@
     			</div>	
     		</div>
     		<div class="col-lg-9">
-				<!--Day tab-->
-				<div class="tab" >
+				<div class="doctor-schedule" >
 					<h3>Select day</h3>
 					<div class="row">
-
-				<%	for(int i=0;i<=7;i++){
-						day.add(Calendar.DATE, i);
-						dt = sdf.format(day.getTime());
+					<!-- Week -->
+				<%		for(int i=0; i < 7; i++) {
+							day.add(Calendar.DATE, i);
+							dt = sdf.format(day.getTime());
 				%>		
 						
 							<div class="book-day col-6 col-md-4 col-lg no-gutters">
 								<span class="day"><%=dt%></span>
 								<br>
 
-
 								<%	
-									boolean booked = false;
+									boolean timeSlotBooked;
 									Calendar time = Calendar.getInstance();
-									String mtm1 = "09:00";
-									SimpleDateFormat msdf2 = new SimpleDateFormat("HH:mm");
-									time.setTime(msdf2.parse(mtm1));
-									for(int j=0;j<=16;j++){
-										mtm1 = msdf2.format(time.getTime());
-										time.add(Calendar.MINUTE, 30);	
+									String timeSlot = "09:00";
+									SimpleDateFormat sdfHour = new SimpleDateFormat("HH:mm");
+									time.setTime(sdfHour.parse(timeSlot));
+									for(int j=0;j<=16;j++) {
+										timeSlot = sdfHour.format(time.getTime());
+										time.add(Calendar.MINUTE, 30);
+
+										timeSlotBooked = false;
+										if(bookingsBooked.size() > 0) {
+											for(int k=0; k < bookingsBooked.size(); k++) {
+												in++;
+												if(timeSlot.compareTo(bookingsBooked.get(k).getHour()) == 0 
+													&& dt.compareTo(bookingsBooked.get(k).getDate()) == 0) {
+													timeSlotBooked = true; //if this date and timeSlot is booked make it unable to be selected
+													
+												}
+											}
+										}
+
+										if(timeSlotBooked == false) {
 								%>
-								
-								<a href="http://ism.dmst.aueb.gr/ismgroup96/booking-controller.jsp?doctorId=2&date=<%=dt%>&hour=<%=mtm1%>" class="time"><%=mtm1%></a>
+
+											<a href="http://ism.dmst.aueb.gr/ismgroup96/booking-controller.jsp?doctorId=<%=doctorId%>&date=<%=dt%>&hour=<%=timeSlot%>" class="time"><%=timeSlot%></a>
 								
 								<%	
-									}	
+										} else {
+								%>
+											<span class="booked"><%=timeSlot%></span>
+								<%
+										}
+									}
 								%>
 							</div>
 						

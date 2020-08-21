@@ -2,12 +2,6 @@ package model;
 
 public class Patient extends User {
 
-//    int id;
-//    String name;
-//    String surname;
-//    String username;
-//    String password;
-//    String email;
     String ssn;
 
     public Patient(int id, String name, String surname, String username, String password, String ssn, String email) {
