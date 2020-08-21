@@ -1,59 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="database.*, model.*, java.util.*" %>
 
+<%
+    DoctorDAO doctorDAO = new DoctorDAO();
+    Doctor doctor = doctorDAO.getDoctorInfo();
+%>
 
 <!DOCTYPE html>
-<html>
-
-	<head>
-		<title>Doctor.gr | My Appointments</title>
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-		<!-- Custom styles for this template -->
-		<link href="css/my-appointments_doctor.css" rel="stylesheet">
+<html lang="en">
+<head>
 	
-	</head>
+	<title>Doctor.gr | My Appointments</title>
 
-	<body onload="renderDate()">
-		<!-- Navigation Bar-->
-		<%@ include file="navbar-doctor.jsp" %>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/my-appointments_doctor.css">
 
-		<!-- Page Content -->
-		<header id="main-header">
-			<br><br><br><br>
-			<h1 id="main-slogan">Your Appointments!</h1>
-		</header>
-		
-		<div class="wrapper">
-			<div class="calendar">
-				<div class="month">
-					<div class="prev" onclick="moveDate('prev')">
-						<span>&#10094;</span>
-					</div>
-					<div>
-						<h2 id="month"></h2>
-						<p id="date_str"></p>
-					</div>
-					<div class="next" onclick="moveDate('next')">
-						<span>&#10095;</span>
+</head>
+
+<body onload="renderDate()">
+
+	<!-- Navigation Bar-->
+	<%@ include file="navbar-doctor-appointments.jsp" %>
+
+	<!-- Page Content -->
+	<div class="col-md-8 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<p class="card-tittle font-weight-bold">My Appointments</p>
+				<hr>
+				<div class="wrapper">
+					<div class="calendar">
+						<div class="month">
+							<div class="prev" onclick="moveDate('prev')">
+								<span>&#10094;</span>
+							</div>
+							<div>
+								<h2 id="month"></h2>
+								<p id="date_str"></p>
+							</div>
+							<div class="next" onclick="moveDate('next')">
+								<span>&#10095;</span>
+							</div>
+						</div>
+						<div class="weekdays">
+							<div>Sun</div>
+							<div>Mon</div>
+							<div>Tue</div>
+							<div>Wed</div>
+							<div>Thu</div>
+							<div>Fri</div>
+							<div>Sat</div>
+						</div>
+						<div class="days"></div>
 					</div>
 				</div>
-				<div class="weekdays">
-					<div>Sun</div>
-					<div>Mon</div>
-					<div>Tue</div>
-					<div>Wed</div>
-					<div>Thu</div>
-					<div>Fri</div>
-					<div>Sat</div>
-				</div>
-				<div class="days"></div>
+				<script src="js/calendar.js"></script>
 			</div>
 		</div>
-		
-		<script src="js/calendar.js" type="text/javascript"></script>		
-		
-	</body>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+</body>
 </html>

@@ -3,7 +3,12 @@
 
 <%
 	PatientDAO patientDAO = new PatientDAO();
+	DoctorDAO doctorDAO = new DoctorDAO();
+	BookingDAO bookingDAO = new BookingDAO();
+
 	Patient patient = patientDAO.getPatientInfo();
+	
+	List<Booking> bookings = bookingDAO.getAllBookingsByPatientId(patient.getId());
 %>
 
 <!doctype html>
@@ -36,22 +41,17 @@
 					<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=patient.getName()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=patient.getSurname()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=patient.getUsername()%></span></li>
-					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=patient.getPassword()%></span></li>
+					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail" type="password"><%=patient.getPassword()%></span></li>
 					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">SSN:</span><span class="about-item-detail"><%=patient.getSsn()%></span></li>
 				</ul>
 				<p class="card-description">Contact Information</p>
 				<ul class="about">
-					<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Phone Number:</span><span class="about-item-detail"><%=patient.getPhoneNumber()%></span></li>
 					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=patient.getEmail()%></span></li>
 				</ul>
-				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" 
-							class="btn btn-xs btn-default btn-block"
-							title="Edit">
-							<span class="glyphicon glyphicon-edit"></span> Edit
-						</a>
-						<button type="button" class="btn btn-xs btn-danger btn-block"
+				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
 			</div>
 		</div>
+
 		<div class="card">
 			<div class="card-body">
 				<p class="card-tittle font-weight-bold">My Appointments</p>
@@ -84,9 +84,41 @@
 				</div>
 				<script src="js/calendar.js"></script>
 			</div>
+			<div class="container" id="appointments-list">
+				<div class="row appointment">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<div class="container">
+							<%	if(bookings.size() == 0) {%>
+								<h4 id="not-found">You have not booked any appointments yet!</h4>
+							<% } else {
+								for(Booking booking: bookings) {%>
+									<div class="row mini-profil">
+										<div class="col-3">
+											<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
+										</div>
+										<div class="col-5">
+											<%Doctor doctor = doctorDAO.getDoctorById(booking.getDoctorId());%>
+											<h5><%=doctor.getFullName()%></h5>
+											<p><%=doctor.getSpecialty()%></p>
+											<p><%=doctor.getPhoneNumber()%></p>
+											<p><%=doctor.getAddress()%></p>
+										</div>
+										<div class="col-4">
+											<h5><%=booking.getDate()%></h5>
+											<h5><%=booking.getHour()%></h5>
+											<a href="/ismgroup96/cancel-booking.jsp?booking.getId()" class="btn btn-xs btn-default btn-block" title="Cancel"><span class="glyphicon glyphicon-trash"></span>Cancel Appointment</a>
+										</div>
+									</div>
+							<%	}
+							} %>
+						</div>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
 		</div>
-	</div>
-
+		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

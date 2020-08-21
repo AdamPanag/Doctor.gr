@@ -2,11 +2,11 @@
 <%@ page import="database.*, model.*, java.util.*" %>
 
 <%
-	SpecialtyDAO sDAO = new SpecialtyDAO();
-	List<Specialty> s =  sDAO.getAllSpecialties();
+	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
+	List<Specialty> specialties =  specialtyDAO.getAllSpecialties();
 
-	AreaDAO aDAO = new AreaDAO();
-	List<Area> a =  aDAO.getAllAreas();
+	AreaDAO areaDAO = new AreaDAO();
+	List<Area> areas =  areaDAO.getAllAreas();
 
 	DoctorDAO doctorDAO = new DoctorDAO();
 	Doctor doctor = doctorDAO.getDoctorInfo();
@@ -22,12 +22,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="css/edit-patient.css">
+    <link rel="stylesheet" type="text/css" href="css/edit-profile.css">
  
 </head>
 
 <body>
 
+	<div class="card">
+		<div class="card-body">
 		<div class="row">
 			<div class="col-xs-12 col-md-10 col-lg-8">				
 
@@ -62,16 +64,22 @@
 					</div>
 
 					<div class="form-group">
-						<label for="specialty" class="col-sm-2 control-label">Specialty: </label>
+						<label for="doctor_specialty">Specialty: </label>
 						<div class="col-sm-10">
-							<select id="specialty" name="doctor_specialty" class="form-control">
-								<option value="">--- Please choose a specialty ---</option>
-					<%	for( Specialty s : specialties ) { %>
-								<option value="<%=s.getId() %>" <%=(s.getId() == doctor.getSpecialty().getId() ? "selected" : "") %>><%=s.getName() %></option>		
-					<% } %>								
+							<select name="doctor_specialty" id="specialty" placeholder="Specialties">
+								<% 	for(Specialty specialty: specialties) { %>
+								<option value="<%=specialty.getName() %>"><%=(specialty.getName() == doctor.getSpecialty() ? "selected" : "") %><%=specialty.getName() %></option>			
+								<% 	} %>
 							</select>
 						</div>
 					</div>
+
+					<!-- <div class="form-group">
+						<label for="spacialty" class="col-sm-2 control-label">Specialty: </label>
+						<div class="col-sm-10">
+							<input type="specialty" id="specialty" name="doctor_specialty" value="<%= doctor.getSpecialty()%>" class="form-control" placeholder="specialty">
+						</div>
+					</div> -->
 
 					<div class="form-group">
 						<label for="phone" class="col-sm-2 control-label">Phone Number: </label>
@@ -95,21 +103,26 @@
 					</div>
 
 					<div class="form-group">
-						<label for="area" class="col-sm-2 control-label">Area: </label>
+						<label for="doctor_area">Area: </label>
 						<div class="col-sm-10">
-							<select id="area" name="doctor_area" class="form-control">
-								<option value="">--- Please choose an area ---</option>
-					<%	for( Area a : areas ) { %>
-								<option value="<%=a.getId() %>" <%=(s.getId() == doctor.getArea().getId() ? "selected" : "") %>><%=a.getName() %></option>		
-					<% } %>								
+							<select name="doctor_area" id="area" placeholder="Area">
+								<% 	for(Area area: areas) { %>
+								<option value="<%=area.getName() %>"><%=(area.getName() == doctor.getArea() ? "selected" : "") %><%=area.getName() %></option>			
+								<% 	} %>
 							</select>
 						</div>
 					</div>
 
+					<!-- <div class="form-group">
+						<label for="doctor_area" class="col-sm-2 control-label">Area: </label>
+						<div class="col-sm-10">
+							<input type="text" id="area" name="doctor_area" value="<%= doctor.getArea()%>" class="form-control" placeholder="area">
+						</div>
+					</div> -->
 
 					<div class="form-group">
 						<div class="col-sm-10 col-sm-offset-2">
-							<a href="/ismgroup96/patient-profile.jsp" class="btn btn-default">
+							<a href="/ismgroup96/doctor-profile.jsp" class="btn btn-default">
 								<span class="glyphicon glyphicon-chevron-left"></span> Back
 							</a>
 							<button type="submit" class="btn btn-success">
@@ -126,6 +139,8 @@
 
 			</div>
 		</div>
+	</div>
+	</div>
 
 	</div>
 
