@@ -11,7 +11,7 @@ import model.User;
 
 public class PatientDAO {
 
-	public Patient getPatientInfo() throws Exception {
+	public Patient getPatientInfo(int id) throws Exception {
 		Patient patient = new Patient();
 
 		DB db = new DB();
@@ -21,7 +21,7 @@ public class PatientDAO {
 
 		String sqlQuery = "SELECT * "
 						+ "FROM patients "
-						+ "WHERE id = '1';";
+						+ "WHERE id = '" + id + "';";
 
 		try {
 			con = db.getConnection(); //get Connection
@@ -54,7 +54,7 @@ public class PatientDAO {
 
 	}
 
-	public void updatePatient(Patient patient) throws Exception {
+	public void updatePatient(Patient patient, int id) throws Exception {
 
 
 			Connection con = null;
@@ -62,7 +62,7 @@ public class PatientDAO {
 			//Define the SQL statement (to be executed)
 			String sql= "UPDATE patients " +
 						"SET name=?, surname=?, username=?, password=?, ssn=?, email=? " +
-						"WHERE id=1;";
+						"WHERE id = '" + id + "';";
 
 
 			DB db = new DB();

@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="database.*, model.*, java.util.*" %>
+<%@ page import="database.*, model.*, java.util.*, java.lang.*" %>
 
 <%
+	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+
 	PatientDAO patientDAO = new PatientDAO();
 	DoctorDAO doctorDAO = new DoctorDAO();
 	BookingDAO bookingDAO = new BookingDAO();
 
-	Patient patient = patientDAO.getPatientInfo();
+	patient = patientDAO.getPatientInfo(patient.getId());
 	
 	List<Booking> bookings = bookingDAO.getAllBookingsByPatientId(patient.getId());
 %>
@@ -48,7 +50,7 @@
 				<ul class="about">
 					<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Email:</span><span class="about-item-detail"><%=patient.getEmail()%></span></li>
 				</ul>
-				<a href="/ismgroup96/edit-patient.jsp?patientId='1'" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+				<a href="/ismgroup96/edit-patient.jsp?id=<%=patient.getId() %>" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
 			</div>
 		</div>
 

@@ -2,8 +2,10 @@
 <%@ page import="database.*, model.*, java.util.*" %>
 
 <%
+	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+
 	PatientDAO patientDAO = new PatientDAO();
-	Patient patient = patientDAO.getPatientInfo();
+	patient = patientDAO.getPatientInfo(patient.getId());
 %>
 
 <!DOCTYPE html> 
