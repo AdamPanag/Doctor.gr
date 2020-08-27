@@ -2,6 +2,9 @@
 <%@ page import="database.*, model.*, java.util.*" %>
 
 <%
+	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+	int id = patient.getId();
+
 	String name = request.getParameter("patient_name");
 	String surname = request.getParameter("patient_surname");
 	String username = request.getParameter("patient_username");
@@ -10,9 +13,9 @@
 	String email = request.getParameter("patient_email");
 
 	PatientDAO patientDAO = new PatientDAO();
-	Patient patient = new Patient('1', name, surname, username, password, ssn, email);
+	patient = new Patient(id, name, surname, username, password, ssn, email);
 
-	patientDAO.updatePatient(patient);
+	patientDAO.updatePatient(patient, id);
 %>
 
 <jsp:forward page="patient-profile.jsp"/>

@@ -2,11 +2,20 @@ package model;
 
 public class Patient extends User {
 
+//    int id;
+//    String name;
+//    String surname;
+//    String username;
+//    String password;
+//    String email;
     String ssn;
+    //String phoneNumber;
 
-    public Patient(int id, String name, String surname, String username, String password, String ssn, String email) {
+    public Patient(int id, String name, String surname, String username, String password, String ssn,
+    		 String email) {
         super(id, name, surname, username, password, email);
         this.ssn = ssn;
+
     }
 
     public Patient() {}
@@ -19,10 +28,13 @@ public class Patient extends User {
 			this.ssn = ssn;
 		}
 
+
+
 		@Override
 			public String toString() {
 
 				return "<ul>"
+						+ "<li>name= " + id + "</li>"
 						+ "<li>name= " + name + "</li>"
 						+ "<li>surname= " + surname + "</li>"
 						+ "<li>username= " + username + "</li>"
