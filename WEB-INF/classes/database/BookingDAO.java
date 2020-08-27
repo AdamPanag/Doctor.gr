@@ -12,13 +12,12 @@ import model.Booking;
 public class BookingDAO {
 
 	/**
-	 * Calculates the number of bookings that already exist plus one,
-	 * in order to give the next bookings the right id.
-	 * For example, if there are 5 bookings, this method will return the number 6,
-	 * which is the id of the next booking.
+	 * Finds the next available booking id. For example, if the last id given is 40,
+	 * the next id will be 41, even if bookings with an id less than 40 exist.
 	 */
 	public int findNextBookingId() throws Exception {
-		int id = 1;
+		ArrayList<Integer> ids = new ArrayList<Integer>();
+		int newId = 1;
 
 		DB db = new DB();
 		Connection con = null;
@@ -31,16 +30,22 @@ public class BookingDAO {
 			con = db.getConnection(); //get Connection
 			stmt = con.prepareStatement(sqlQuery);
 			rs = stmt.executeQuery();
-
+			
 			while (rs.next()) {
-				id++;
+				ids.add(rs.getInt("id"));
 			}
 
 			rs.close();
 			stmt.close();
 			db.close();
-
-			return id;
+			
+			if(ids.size() == 0) {
+				newId = 1;
+			} else {
+				newId = ids.get(ids.size() - 1) + 1;
+			}
+			
+			return newId;
 
 		} catch (Exception e) {
 

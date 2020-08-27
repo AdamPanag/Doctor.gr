@@ -4,15 +4,23 @@ body {
 }
 
 #doctor-info-schedule {
-	margin-top: 75px;
+	margin-top: 30px;
 	margin-left: 5%;
 	margin-right: 5%;
+	margin-bottom: 30px;
 }
 
 .time {
 	display: block;
 	height: 30px;
-	color: #3497db;
+	color: #0066ff;
+	text-align: center;
+}
+
+.time:hover{
+	display: block;
+	height: 30px;
+	color: #99ccff;
 	text-align: center;
 }
 

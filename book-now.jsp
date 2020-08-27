@@ -87,7 +87,7 @@
 										if(timeSlotBooked == false) {
 								%>
 
-											<a href="http://ism.dmst.aueb.gr/ismgroup96/booking-controller.jsp?doctorId=<%=doctorId%>&date=<%=dt%>&hour=<%=timeSlot%>" class="time"><%=timeSlot%></a>
+											<span onclick="confirmBooking('<%=doctorId%>', '<%=dt%>', '<%=timeSlot%>')" class="time"><%=timeSlot%></span>
 								
 								<%	
 										} else {
@@ -111,7 +111,15 @@
 	</div>
 
 
-
+	<script>
+		function confirmBooking(doctorId, dt, timeSlot) {
+		  var r = confirm("Are you sure that you want to book an appointment at " + timeSlot + " on the " + dt + "?");
+		  if(r == true) {
+		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/booking-controller.jsp?doctorId=" + doctorId +
+		  	"&date=" + dt + "&hour=" + timeSlot;
+		  }
+		}
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
