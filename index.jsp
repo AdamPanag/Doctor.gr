@@ -34,13 +34,11 @@
 
 <!-- Page Content -->
 <header id="home-header">
-	<br><br><br><br><br><br><br><br>
 	<h1 id="main-slogan">Find your doctor and book an appointment!</h1>
-	<br><br>
 	<form action="search-result.jsp" method="POST">
 		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-4">
+			<div class="col-lg-2 col-12"></div>
+			<div class="col-lg-4">
 				<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
 				<datalist id="specialties">
 <% 	for(Specialty speciaclty: specialties) { %>
@@ -48,7 +46,7 @@
 <% 	} %>
 				</datalist>
 			</div>
-			<div class="col-3">
+			<div class="col-lg-3 col-12">
 				<input list="areas" name="area" class="search-input" placeholder="Where?">
 				<datalist id="areas">
 <% 	for(Area area: areas) { %>
@@ -56,10 +54,10 @@
 <% } %>
 				</datalist>
 			</div>
-			<div class="col-1">
+			<div class="col-lg-1 col-12">
 				<input type="submit" id="submit" class="fsSubmitButton" value="Search">
 			</div>
-			<div class="col-2"></div>
+			<div class="col-lg-2"></div>
 		</div>
 	</form>
 	
