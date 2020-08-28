@@ -30,7 +30,7 @@ public class BookingDAO {
 			con = db.getConnection(); //get Connection
 			stmt = con.prepareStatement(sqlQuery);
 			rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				ids.add(rs.getInt("id"));
 			}
@@ -38,13 +38,13 @@ public class BookingDAO {
 			rs.close();
 			stmt.close();
 			db.close();
-			
+
 			if(ids.size() == 0) {
 				newId = 1;
 			} else {
 				newId = ids.get(ids.size() - 1) + 1;
 			}
-			
+
 			return newId;
 
 		} catch (Exception e) {
@@ -142,7 +142,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-						+ "WHERE doctorId = '" + doctorId + "';";
+						+ "WHERE doctorId = '" + doctorId + "' ORDER BY DATE;";
 
 		try {
 			con = db.getConnection(); //get Connection
@@ -181,7 +181,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-								+ "WHERE patientId = '" + patientId + "';";
+								+ "WHERE patientId = '" + patientId + "' ORDER BY date;";
 
 		try {
 			con = db.getConnection(); //get Connection
