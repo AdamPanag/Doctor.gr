@@ -7,6 +7,12 @@ html,body {
 	overflow-x: hidden;
 }
 
+p {
+    font-size: 0.875rem;
+    margin-bottom: .5rem;
+    line-height: 1.3rem;
+}
+
 .card {
 	display: flex;
 	top: 70px;
@@ -35,6 +41,21 @@ span.about-item-name {
     width: 100px;
     display: inline-flex;
 	    margin-left: 10px;
+}
+
+ul.about {
+    list-style: none;
+    color: black;
+    padding: 0;
+}
+
+li.about-items {
+    margin: 10px;
+    font-size: 1rem;
+}
+
+li.about-items i {
+color:#607d8b;
 }
 
 .wrapper {
@@ -125,4 +146,29 @@ span.about-item-name {
 #month {
   font-size: 40px;
   font-weight: 500;
+}
+
+.mini-profil {
+	padding: 10px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0 , 0, 0.4);
+	margin-bottom: 25px;;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row .appointment{
+	margin-bottom: 15px;
+	margin-top: 15px;
 }

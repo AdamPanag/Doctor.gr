@@ -1,9 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="database.*, model.*, java.util.*" %>
+<%@ page import="database.*, model.*, java.util.*, java.time.format.*, java.time.*, java.lang.*, java.text.SimpleDateFormat" %>
 
 <%
-    DoctorDAO doctorDAO = new DoctorDAO();
-    Doctor doctor = doctorDAO.getDoctorInfo();
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+	
+	PatientDAO patientDAO = new PatientDAO();
+	DoctorDAO doctorDAO = new DoctorDAO();
+	BookingDAO bookingDAO = new BookingDAO();
+	
+    doctor = doctorDAO.getDoctorInfo(doctor.getId());
+	
+	List<Booking> bookings = bookingDAO.getAllBookingsByDoctorId(doctor.getId());
+	
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+	LocalDateTime now = LocalDateTime.now();  
+	String dt = dtf.format(now);
+	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
 %>
 
 <!DOCTYPE html>
@@ -14,6 +26,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/my-appointments_doctor.css">
@@ -59,8 +72,49 @@
 				</div>
 				<script src="js/calendar.js"></script>
 			</div>
+			<div class="container" id="appointments-list">
+				<div class="row appointment">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<div class="container">
+							<%	if(bookings.size() == 0) {%>
+								<h4 id="not-found">You have not booked any appointments yet!</h4>
+							<% } else {
+								for(Booking booking: bookings) {
+									Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
+									if (booking_date.compareTo(current_date) >= 0) {%>
+										<div class="row mini-profil">
+											<div class="col-5">
+												<%Patient patient = patientDAO.getPatientInfo(booking.getPatientId());%>
+												<h5><%=patient.getFullName()%></h5>
+												<p><%=patient.getSsn()%></p>
+												<p><%=patient.getEmail()%></p>
+											</div>
+											<div class="col-4">
+												<h5><%=booking.getDate()%></h5>
+												<h5><%=booking.getHour()%></h5>
+												<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+											</div>
+										</div>
+							<%		}
+								}
+							} %>
+						</div>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div> 
 		</div>
 	</div>
+	
+	<script>
+		function cancelBooking(bookingId) {
+		  var r = confirm("Are you sure that you want to cancel this appointment?");
+		  if(r == true) {
+		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancelation-controller.jsp?id=" + bookingId;
+		  }
+		}
+	</script>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

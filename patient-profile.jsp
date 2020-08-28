@@ -18,7 +18,7 @@
 	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
 %>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	
@@ -108,7 +108,7 @@
 												<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
 											</div>
 											<div class="col-5">
-												<%Doctor doctor = doctorDAO.getDoctorById(booking.getDoctorId());%>
+												<%Doctor doctor = doctorDAO.getDoctorInfo(booking.getDoctorId());%>
 												<h5><%=doctor.getFullName()%></h5>
 												<p><%=doctor.getSpecialty()%></p>
 												<p><%=doctor.getPhoneNumber()%></p>
@@ -129,6 +129,7 @@
 				</div>
 			</div> 
 		</div>
+	</div>
 		
 	<script>
 		function cancelBooking(bookingId) {
