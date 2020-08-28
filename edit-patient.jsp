@@ -74,16 +74,9 @@
 
 					<div class="form-group">
 						<div class="col-sm-10 col-sm-offset-2">
-							<a href="/ismgroup96/patient-profile.jsp" class="btn btn-default">
-								<span class="glyphicon glyphicon-chevron-left"></span> Back
-							</a>
-							<button type="submit" class="btn btn-success">
-								<span class="glyphicon glyphicon-floppy-disk"></span> Save changes
-							</button>
-							<button type="reset" class="btn btn-default">
-								<span class="glyphicon glyphicon-refresh"></span> Undo changes
-							</button>
-
+							<a href="/ismgroup96/patient-profile.jsp" class="btn btn-default">Back</a>
+							<button type="submit" class="btn btn-success">Save changes</button>
+							<button type="reset" class="btn btn-default">Undo changes</button>
 						</div>
 					</div>
 

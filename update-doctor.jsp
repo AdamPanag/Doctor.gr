@@ -2,6 +2,9 @@
 <%@ page import="database.*, model.*, java.util.*" %>
 
 <%
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+	int id = doctor.getId();
+
 	String name = request.getParameter("doctor_name");
 	String surname = request.getParameter("doctor_surname");
 	String username = request.getParameter("doctor_username");
@@ -13,12 +16,12 @@
 	String area = request.getParameter("doctor_area");
 	
 	DoctorDAO doctorDAO = new DoctorDAO();
-	Doctor doctor = new Doctor('1', name, surname, username, password, specialty, phone, email, address, area);
+	doctor = new Doctor(id, name, surname, username, password, specialty, phone, email, address, area);
 
 	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
 	AreaDAO areaDAO = new AreaDAO();
 
-	doctorDAO.updateDoctor(doctor);
+	doctorDAO.updateDoctor(doctor, id);
 %>
 
 <jsp:forward page="doctor-profile.jsp"/>

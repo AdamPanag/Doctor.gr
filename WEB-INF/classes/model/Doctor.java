@@ -60,6 +60,7 @@ public class Doctor extends User {
 				public String toString() {
 
 					return "<ul>"
+							+ "<li>name= " + id + "</li>"
 							+ "<li>name= " + name + "</li>"
 							+ "<li>surname= " + surname + "</li>"
 							+ "<li>username= " + username + "</li>"

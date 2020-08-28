@@ -45,9 +45,8 @@
                                 <div class="profile-name"><%=doctor.getFullName()%></div>
                                 <div class="profile-designation"><%=doctor.getSpecialty()%></div>
                                 <ul class="profile-info-list">
-                                    <a href="doctor-profile.jsp"><button type="button" class="profile-info-list-item" id="button">Settings</button></a>
-                                    <button type="button" class="profile-info-list-item" id="button">My Appointments</button>
-                                    <button type="button" class="profile-info-list-item" id="button">Log Out</button>
+                                    <a href="my-appointments_doctor.jsp"><button type="button" class="profile-info-list-item" id="button">My Appointments</button></a>
+                                    <a href="index.jsp"><button type="button" class="profile-info-list-item" id="button" href="<%= request.getContextPath() %>/logout-doctor.jsp">Log Out</button></a>
                                 </ul>
                             </div>
                         </div>

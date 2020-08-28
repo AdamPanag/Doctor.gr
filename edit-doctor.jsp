@@ -8,8 +8,10 @@
 	AreaDAO areaDAO = new AreaDAO();
 	List<Area> areas =  areaDAO.getAllAreas();
 
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+
 	DoctorDAO doctorDAO = new DoctorDAO();
-	Doctor doctor = doctorDAO.getDoctorInfo();
+	doctor = doctorDAO.getDoctorInfo(doctor.getId());
 %>
 
 <!DOCTYPE html> 
