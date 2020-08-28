@@ -6,11 +6,6 @@ html,body {
     overflow-x: hidden; 
 }
 
-nav {
-	background-color: #E2E2E2;
-	font-weight: bold;
-}
-
 .search-input {
 	width: 100%;
 	height: 40px;

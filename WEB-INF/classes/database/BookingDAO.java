@@ -99,6 +99,40 @@ public class BookingDAO {
 		}
 	}
 
+	public void cancelAnAppointment(int bookingId) throws Exception {
+			Connection con = null;
+			DB db = new DB();
+			String deleteAppointmentSQL = "DELETE FROM bookings WHERE id = ?";
+
+			try {
+
+				con = db.getConnection(); //get Connection
+
+				PreparedStatement stmt = con.prepareStatement(deleteAppointmentSQL);
+
+				stmt.setInt(1, bookingId);
+
+				stmt.executeUpdate();
+
+				stmt.close();
+				db.close(); //close connection
+
+			} catch (SQLException e) {
+
+				throw new Exception(e.getMessage());
+
+			} catch (Exception e) {
+
+				throw new Exception(e.getMessage());
+
+			} finally {
+
+				if(con != null) // if connection is still open, then close.
+					con.close();
+
+			}
+	}
+
 	public ArrayList<Booking> getAllBookingsByDoctorId(int doctorId) throws Exception{
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 
