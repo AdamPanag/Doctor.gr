@@ -25,7 +25,7 @@
 							<a class="nav-link" href="#">Contact us</a>
 						</li>
 						<%	
-							if(logedIn == true) { %>
+							if(patientLogedIn == true) { %>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=patient.getFullName()%><span class="sr-only">(current)</span></a>
 									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
