@@ -2,11 +2,12 @@
 <%@ page import="database.*, model.*, java.util.List" %>
 
 <%	
-	boolean logedIn = false;
+	boolean patientLogedIn = false;
 	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
 
 	if(patient != null) {
-		logedIn = true;
+		patientLogedIn = true;
 	}
 
 
@@ -37,8 +38,18 @@
 </head>
 
 <body>
-	<!-- Navigation Bar-->
-	<%@ include file="navbar-default.jsp" %>
+	<!-- Navigation Bar-->	
+<%
+	if(patient != null) {
+%>
+		<%@ include file="navbar-default.jsp" %>
+
+<%
+	} else if(doctor != null) {
+%>
+		<%@ include file="navbar-doctor-appointments.jsp" %>
+
+<%  } %>
 
 	<!-- New Search Bar -->
 	<div id="new-search-bar">
@@ -85,28 +96,28 @@
 		<h4 id="not-found">There are no <%=specialtySearched%>s in <%=areaSearched%>!</h4>
 <%
 	} else {
-		for(Doctor doctor: doctors) {
+		for(Doctor doctorObj: doctors) {
 %>					<!-- Doctor's profile -->
 					<div class="row mini-profil">
 						<div class="col-3">
 							<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
 						</div>
 						<div class="col-5">
-							<h5><%=doctor.getFullName()%></h5>
-							<p><%=doctor.getSpecialty()%></p>
-							<p class="phone-number"><%=doctor.getPhoneNumber()%></p>
+							<h5><%=doctorObj.getFullName()%></h5>
+							<p><%=doctorObj.getSpecialty()%></p>
+							<p class="phone-number"><%=doctorObj.getPhoneNumber()%></p>
 						</div>
 						<div class="col-4 book-now-button-parent">
-							<p class="doctor-address"><%=doctor.getAddress()%></p>
+							<p class="doctor-address"><%=doctorObj.getAddress()%></p>
 
-						<% if(logedIn == true) { %>
+						<% if(patientLogedIn == true) { %>
 
-							<a type="submit" class="book-now-button btn btn-primary" href="http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=<%=doctor.getId()%>">Book now</a>
+							<a type="submit" class="book-now-button btn btn-primary" href="http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=<%=doctorObj.getId()%>">Book now</a>
 
 						<% } else {%>
 
 							<a type="submit" class="book-now-button btn btn-primary unable-btn" onclick="loginFirstPopUp()">Book now
-								<span class="popuptext myPopup">Log in first in order to book an appointment</span>
+								<span class="popuptext myPopup">Log in as patient in order to book an appointment</span>
 							</a>
 
 						<% } %>

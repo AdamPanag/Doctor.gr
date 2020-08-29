@@ -2,11 +2,12 @@
 <%@ page import="database.*, model.*, java.util.List" %>
 
 <%	
-	boolean logedIn = false;
+	boolean patientLogedIn = false;
 	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
 
 	if( patient != null) {
-		logedIn = true;
+		patientLogedIn = true;
 	}
 
 	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
@@ -30,7 +31,17 @@
 <body>
 
 <!-- Navigation Bar-->
-<%@ include file="navbar-homepage-default.jsp" %>
+<%
+	if(doctor != null) {
+%>
+		<%@ include file="navbar-doctor-appointments.jsp" %>
+
+<%
+	} else {
+%>
+		<%@ include file="navbar-homepage-default.jsp" %>
+
+<%  } %>
 
 <!-- Page Content -->
 <header id="home-header">
