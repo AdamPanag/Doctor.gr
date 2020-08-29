@@ -7,6 +7,12 @@
     DoctorDAO doctorDAO = new DoctorDAO();
     int doctorId = Integer.parseInt(request.getParameter("doctorId"));
     Doctor doctor = doctorDAO.getDoctorById(doctorId);
+    
+    int weeksToMove = 0;
+    if(request.getParameter("weeksToMove") != null) {
+    	weeksToMove = Integer.parseInt(request.getParameter("weeksToMove"));
+	}
+   
 %>
 
 <!DOCTYPE html>
@@ -22,6 +28,12 @@
 </head>
 
 <body>
+
+<%
+	if(patient == null) {
+		response.sendRedirect("http://ism.dmst.aueb.gr/ismgroup96/index.jsp");
+	} else {
+%>
     <!-- Navigation Bar-->
 	<%@ include file="navbar-patient.jsp" %>
 
@@ -35,7 +47,6 @@
 
 		BookingDAO bookingDAO = new BookingDAO();
 		ArrayList<Booking> bookingsBooked = bookingDAO.getAllBookingsByDoctorId(doctorId);
-		int in = 0;
 	%>
 	
 	<div id="doctor-info-schedule">
@@ -52,8 +63,13 @@
 				<div class="doctor-schedule" >
 					<h3>Select day</h3>
 					<div class="row">
+						<div class="arrow" onclick="moveDate('prev', '<%=weeksToMove%>')">
+							<span>&#10094;</span>
+						</div>
 					<!-- Week -->
-				<%		for(int i=0; i < 7; i++) {
+				<%		
+						day.add(Calendar.DATE, weeksToMove * 7);
+						for(int i=0; i < 7; i++) {
 							day.add(Calendar.DATE, i);
 							dt = sdf.format(day.getTime());
 				%>		
@@ -75,7 +91,7 @@
 										timeSlotBooked = false;
 										if(bookingsBooked.size() > 0) {
 											for(int k=0; k < bookingsBooked.size(); k++) {
-												in++;
+												
 												if(timeSlot.compareTo(bookingsBooked.get(k).getHour()) == 0 
 													&& dt.compareTo(bookingsBooked.get(k).getDate()) == 0) {
 													timeSlotBooked = true; //if this date and timeSlot is booked make it unable to be selected
@@ -100,15 +116,20 @@
 							</div>
 						
 
-				<%		day.add(Calendar.DATE, -i);	
+				<%		day.add(Calendar.DATE, -i);
 					}	
-				%>
+				%>	
+							<div class="arrow" onclick="moveDate('next', '<%=weeksToMove%>')">
+								<span>&#10095;</span>
+							</div>
 					</div>
 
 				</div>
     		</div>
     	</div>
 	</div>
+
+	<% } %>
 
 
 	<script>
@@ -119,6 +140,17 @@
 		  	"&date=" + dt + "&hour=" + timeSlot;
 		  }
 		}
+
+		function moveDate(para , weeksToMove) {
+			if(para == "prev") {
+				weeksToMove--;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
+			} else if(para == 'next') {
+				weeksToMove++;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
+			}
+		}
+
 	</script>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
