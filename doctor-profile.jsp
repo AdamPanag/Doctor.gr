@@ -2,8 +2,12 @@
 <%@ page import="database.*, model.*, java.util.*" %>
 
 <%
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+
     DoctorDAO doctorDAO = new DoctorDAO();
-    Doctor doctor = doctorDAO.getDoctorInfo();
+
+    doctor = doctorDAO.getDoctorInfo(doctor.getId());
+
 %>
 
 <!doctype html>
@@ -14,6 +18,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/doctor-profile.css">
@@ -40,9 +45,8 @@
                                 <div class="profile-name"><%=doctor.getFullName()%></div>
                                 <div class="profile-designation"><%=doctor.getSpecialty()%></div>
                                 <ul class="profile-info-list">
-                                    <a href="doctor-profile.jsp"><button type="button" class="profile-info-list-item" id="button">Settings</button></a>
-                                    <button type="button" class="profile-info-list-item" id="button">My Appointments</button>
-                                    <button type="button" class="profile-info-list-item" id="button">Log Out</button>
+                                    <a href="my-appointments_doctor.jsp"><button type="button" class="profile-info-list-item" id="button">My Appointments</button></a>
+                                    <a href="index.jsp"><button type="button" class="profile-info-list-item" id="button" href="<%= request.getContextPath() %>/logout-doctor.jsp">Log Out</button></a>
                                 </ul>
                             </div>
                         </div>
@@ -68,7 +72,7 @@
                                 <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Address:</span><span class="about-item-detail"><a href=""><%=doctor.getAddress()%></a></span></li>
                                 <li class="about-items"><i class="mdi mdi-email-outline icon-sm "></i><span class="about-item-name">Area:</span><span class="about-item-detail"><a href=""><%=doctor.getArea()%></a></span></li>
                             </ul>
-                            <a href="/ismgroup96/edit-doctor.jsp?doctorId='1'" class="btn btn-xs btn-default btn-block" title="Edit"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+                            <a href="/ismgroup96/edit-doctor.jsp?id=<%=doctor.getId()%>" class="btn btn-xs btn-default btn-block" title="Edit">Edit <i class="material-icons" style="vertical-align: -6px;">create</i></a>
                         </div>
                     </div>
                 </div>

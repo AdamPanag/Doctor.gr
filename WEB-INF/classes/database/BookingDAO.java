@@ -30,7 +30,7 @@ public class BookingDAO {
 			con = db.getConnection(); //get Connection
 			stmt = con.prepareStatement(sqlQuery);
 			rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				ids.add(rs.getInt("id"));
 			}
@@ -38,13 +38,13 @@ public class BookingDAO {
 			rs.close();
 			stmt.close();
 			db.close();
-			
+
 			if(ids.size() == 0) {
 				newId = 1;
 			} else {
 				newId = ids.get(ids.size() - 1) + 1;
 			}
-			
+
 			return newId;
 
 		} catch (Exception e) {
@@ -99,6 +99,40 @@ public class BookingDAO {
 		}
 	}
 
+	public void cancelAnAppointment(int bookingId) throws Exception {
+			Connection con = null;
+			DB db = new DB();
+			String deleteAppointmentSQL = "DELETE FROM bookings WHERE id = ?";
+
+			try {
+
+				con = db.getConnection(); //get Connection
+
+				PreparedStatement stmt = con.prepareStatement(deleteAppointmentSQL);
+
+				stmt.setInt(1, bookingId);
+
+				stmt.executeUpdate();
+
+				stmt.close();
+				db.close(); //close connection
+
+			} catch (SQLException e) {
+
+				throw new Exception(e.getMessage());
+
+			} catch (Exception e) {
+
+				throw new Exception(e.getMessage());
+
+			} finally {
+
+				if(con != null) // if connection is still open, then close.
+					con.close();
+
+			}
+	}
+
 	public ArrayList<Booking> getAllBookingsByDoctorId(int doctorId) throws Exception{
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 
@@ -108,7 +142,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-						+ "WHERE doctorId = '" + doctorId + "';";
+						+ "WHERE doctorId = '" + doctorId + "' ORDER BY DATE;";
 
 		try {
 			con = db.getConnection(); //get Connection
@@ -147,7 +181,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-								+ "WHERE patientId = '" + patientId + "';";
+								+ "WHERE patientId = '" + patientId + "' ORDER BY date;";
 
 		try {
 			con = db.getConnection(); //get Connection

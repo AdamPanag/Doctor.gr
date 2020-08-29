@@ -29,4 +29,7 @@ session.invalidate();
 		<title>Log out page</title>
 	
 </head>
+<body>	
+
+</body>
 </html>

@@ -100,7 +100,7 @@ public class DoctorDAO {
 
 	}
 
-	public Doctor getDoctorInfo() throws Exception {
+	public Doctor getDoctorInfo(int id) throws Exception {
 			Doctor doctor = new Doctor();
 
 			DB db = new DB();
@@ -110,7 +110,7 @@ public class DoctorDAO {
 
 			String sqlQuery = "SELECT * "
 							+ "FROM doctors "
-							+ "WHERE id = '1';";
+							+ "WHERE id = '" + id + "';";
 
 			try {
 				con = db.getConnection(); //get Connection
@@ -144,7 +144,7 @@ public class DoctorDAO {
 
 	}
 
-	public void updateDoctor(Doctor doctor) throws Exception {
+	public void updateDoctor(Doctor doctor, int id) throws Exception {
 
 
 				Connection con = null;
@@ -152,7 +152,7 @@ public class DoctorDAO {
 				//Define the SQL statement (to be executed)
 				String sql= "UPDATE doctors " +
 							"SET name=?, surname=?, username=?, password=?, specialty=?, phoneNumber=?, email=?, address=?, area=? " +
-							"WHERE id=1;";
+							"WHERE id = '" + id + "';";
 
 
 				DB db = new DB();
