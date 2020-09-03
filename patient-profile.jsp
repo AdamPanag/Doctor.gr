@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.*, java.time.format.*, java.time.*, java.lang.*, java.text.SimpleDateFormat" %>
 
+<%-- restrict page access --%>
+<%@ include file="patientAuthenticationGuard.jsp"%>
+
 <%
 	Patient patient = (Patient) session.getAttribute("patient-database-obj");
 
@@ -16,6 +19,37 @@
 	LocalDateTime now = LocalDateTime.now();  
 	String dt = dtf.format(now);
 	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
+
+	//sort bookings by order
+	List<Booking> bookingsSorted;
+	String newDateString1;
+	String newDateString2;
+	SimpleDateFormat sdfHour = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+	// for (int i = 0; i < bookings.size(); i++) {
+	// 	newDateString = bookings.get(i).getDate() + " " + bookings.get(i).getHour();
+	// 	bookings.get(i).setDate(sdfHour.parse(newDateString));
+	// }
+
+	// Booking o1;
+	// Booking o3;
+	// for (int i = 0; i < bookings.size() - 1; i++) {
+	// 	//o1 = bookings.get(i);
+	// 	newDateString1 = bookings.get(i).getDate() + " " + bookings.get(i).getHour();
+	// 	//o3 = bookings.get(i + 1);
+	// 	newDateString2 = bookings.get(i + 1).getDate() + " " + bookings.get(i + 1).getHour();
+
+	// 	bookings.sort((o1, o3) --> sdfHour.parse(newDateString1).compareTo(sdfHour.parse(newDateString2)));
+	// }
+
+	// Collections.sort(bookings, new Comparator<Booking>() {
+
+	// 	SimpleDateFormat sdfHour = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+ //  		public int compare(Booking o1, Booking o2) {
+
+ //      		return sdfHour.parse(o1.getDate() + " " + o1.getHour()).compareTo(sdfHour.parse(o2.getDate() + " " + o2.getHour()));
+ //  		}
+	// });
 %>
 
 <!DOCTYPE html>
@@ -49,7 +83,6 @@
 					<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=patient.getName()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=patient.getSurname()%></span></li>
 					<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=patient.getUsername()%></span></li>
-					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail" type="password"><%=patient.getPassword()%></span></li>
 					<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">SSN:</span><span class="about-item-detail"><%=patient.getSsn()%></span></li>
 				</ul>
 				<p class="card-description">Contact Information</p>

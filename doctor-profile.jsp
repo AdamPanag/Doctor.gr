@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.*" %>
 
+<%-- restrict page access --%>
+<%@ include file="doctorAuthenticationGuard.jsp"%>
+
 <%
-	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+    Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
 
     DoctorDAO doctorDAO = new DoctorDAO();
 
@@ -18,7 +21,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/doctor-profile.css">
@@ -62,7 +65,6 @@
                                 <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Name:</span><span class="about-item-detail"><%=doctor.getName()%></span></li>
                                 <li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">Surname:</span><span class="about-item-detail"><%=doctor.getSurname()%></span></li>
                                 <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Username:</span><span class="about-item-detail"><%=doctor.getUsername()%></span></li>
-                                <li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail"><%=doctor.getPassword()%></span></li>
                                 <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Specialty:</span><span class="about-item-detail"><%=doctor.getSpecialty()%></span></li>
                             </ul>
                             <p class="card-description">Contact Information</p>

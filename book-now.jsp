@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.*, java.text.*, java.time.format.*, java.time.*, java.lang.Integer" %>
 
+<%-- restrict page access --%>
+<%@ include file="patientAuthenticationGuard.jsp"%>
+
 <%  
 	Patient patient = null;
 	patient = (Patient) session.getAttribute("patient-database-obj");
@@ -29,11 +32,6 @@
 
 <body>
 
-<%
-	if(patient == null) {
-		response.sendRedirect("http://ism.dmst.aueb.gr/ismgroup96/index.jsp");
-	} else {
-%>
     <!-- Navigation Bar-->
 	<%@ include file="navbar-patient.jsp" %>
 
@@ -128,8 +126,7 @@
     		</div>
     	</div>
 	</div>
-
-	<% } %>
+	%>
 
 
 	<script>
