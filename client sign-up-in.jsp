@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="database.*, model.*, java.util.List" %>
+<%@ page errorPage="error.jsp"%>
+
+
+
+
+
 
 <!DOCTYPE html>
 
@@ -17,58 +24,43 @@
 <body>
 
 <!-- Navigation Bar-->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-	<div class="container">
-	  	<a class="navbar-brand" href="#">Doctor.gr</a>
-	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  	</button>
-	  	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-	    	<ul class="navbar-nav ml-auto">
-	      		<li class="nav-item active">
-	        		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	      		</li>
-	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">About us</a>
-	      		</li>
-	      		<li class="nav-item">
-	        		<a class="nav-link" href="#">Contact us</a>
-	      		</li>
-	      		<li class="nav-item dropdown">
-	        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          		Login/Register
-	        		</a>
-	        		<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			          	<a class="dropdown-item" href="#">Patient</a>
-			          	<a class="dropdown-item" href="#">Doctor</a>
-	        		</div>
-	      		</li>
-	    	</ul>
-	  	</div>
-  	</div>
-</nav>
-
-
+<%@ include file="navbar-login.jsp" %>
 
   
 <div class="split left">
   <div class="centered">
-    <div class="form sign-in">
-	  <h2>Sign In</h2>
-	  
-	  <label>
-	    <span>Email Address</span>
-		<input type="email" name="email">
-	   </label>
-	   <label>
-	     <span>Password</span>
-		 <input type="password" name="password"> 
-	   </label>
-       <button class="submit" type="button">Sign In</button>
-	   <p class="forgot-pass">Forgot Password ?</p>
-	</div>
+    <div class="container" role="main">
+
+		<% if(request.getAttribute("message") != null) { %>		
+			<div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+		<% } %>
+         
+		<form class="form-signin" method="POST" action="<%=request.getContextPath() %>/signinController.jsp">
+		
+			<h2>Sign in</h2>
+			 <label>
+	           <span>Username</span>
+		       <input type="username" name="username">
+	         </label>
+	         <label>
+	           <span>Password</span>
+		       <input type="password" name="password"> 
+	         </label>
+			
+			<button class="submit" type="submit">Sign In</button>
+
+
+		</form>
+		
+			
+		
+ 
    </div>
    
+    
+  </div>
+  
+    
 </div>
     
     
