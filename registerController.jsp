@@ -81,24 +81,19 @@ try {
 	}	
 	
 	//validate username
-	if( !pavalidator.isUsernameValid( surname ) ) {
-		errorMessage += "<li>Surname should have from 3 (min) to 45 (max) characters</li>";
+	if( !pavalidator.isUsernameValid( username ) ) {
+		errorMessage += "<li>Username should have from 3 (min) to 45 (max) characters</li>";
 		countErrors++;
-		//request.setAttribute( "error-message", "Surname is not valid" );
+		//request.setAttribute( "error-message", "Username is not valid" );
 		//errorPage.forward(request, response);
 		//return;
 	}	
 		
-	if(password != null) {
-		//For the Greek characters.
-		password = new String(password.getBytes("ISO-8859-1"), "UTF-8");
-	}	
-	
 	//validate password
-	if( !pavalidator.isPasswordValid( surname ) ) {
-		errorMessage += "<li>Surname should have from 3 (min) to 45 (max) characters</li>";
+	if( !pavalidator.isPasswordValid( password ) ) {
+		errorMessage += "<li>Password should have at least 8 characters including a lowercase letter, an uppercase letter and a number</li>";
 		countErrors++;
-		//request.setAttribute( "error-message", "Surname is not valid" );
+		//request.setAttribute( "error-message", "Password is not valid" );
 		//errorPage.forward(request, response);
 		//return;	
 	}
@@ -140,4 +135,4 @@ request.setAttribute( "error-message", e.getMessage());
 	throw new Exception( e.getMessage() ); 
 
 } 
-%>winsc
+%>

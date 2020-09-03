@@ -19,21 +19,34 @@
 
 <div class="split left">
   <div class="centered">
-    <div class="form sign-in">
-	  <h2>Sign In</h2>
-	  
-	  <label>
-	    <span>Email Address</span>
-		<input type="email" name="email">
-	   </label>
-	   <label>
-	     <span>Password</span>
-		 <input type="password" name="password"> 
-	   </label>
-	   <button class="submit" type="button">Sign In</button>
-	   <p class="forgot-pass">Forgot Password ?</p>
-	</div>
+     <div class="container" role="main">
+
+		<% if(request.getAttribute("message") != null) { %>		
+			<div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+		<% } %>
+         
+		<form class="form-signin" method="POST" action="<%=request.getContextPath() %>/dsigninController.jsp">
+		
+			<h2>Sign in</h2>
+			 <label>
+	           <span>Username</span>
+		       <input type="username" name="username">
+	         </label>
+	         <label>
+	           <span>Password</span>
+		       <input type="password" name="password"> 
+	         </label>
+			
+			<button class="submit" type="submit">Sign In</button>
+
+
+		</form>
+		
+	  </div>	
+		
+ 
    </div>
+    
    
 </div>
     

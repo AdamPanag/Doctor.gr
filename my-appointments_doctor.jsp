@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.*, java.time.format.*, java.time.*, java.lang.*, java.text.SimpleDateFormat" %>
 
+<%-- restrict page access --%>
+<%@ include file="doctorAuthenticationGuard.jsp"%>
+
 <%
 	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
 	

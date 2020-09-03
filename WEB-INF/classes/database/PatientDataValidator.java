@@ -48,7 +48,8 @@ public class PatientDataValidator {
 
 	public boolean isPasswordValid(String password) {
 
-				return ( password == null || password.length() < 3 || password.length() > 45 ? false : true);
+                return password.matches(
+					"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" );
 
 	}
 

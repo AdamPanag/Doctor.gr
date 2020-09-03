@@ -21,6 +21,14 @@
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
+	<% if(request.getAttribute("error-message") != null) { %>
+		
+			<div class="alert alert-danger">
+				<b>Error:</b> <%=(String)request.getAttribute("error-message") %> 
+			</div>
+	
+<% } %>
+
 	<div class="row">
 		
 	    <div class="col-xs-12">
@@ -74,7 +82,11 @@
 						  <input type="text" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
 						</div>
 					  </div>
+<<<<<<< HEAD
 	
+=======
+	               <script src = "js/confirm.js"></script>
+>>>>>>> 2d7f8fcc299def29f1d5205b8f8b8de6a6ef2cf6
                    <div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						  <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 

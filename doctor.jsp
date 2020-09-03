@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ page import="database.*, model.*, java.util.List" %>
+<%@ page errorPage="error.jsp"%>
+
 
 <%
 	SpecialtyDAO specialtyDAO = new SpecialtyDAO();
@@ -9,96 +10,143 @@
 	List<Area> areas = areaDAO.getAllAreas();
 %>
 
-
-
-
-
-
 <!DOCTYPE html>
 
 <html>
 <head>
   <link rel="stylesheet" href="css/doctor-client.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
 </head>
 
 <body>
 
-  <form class="modal-content" action="/action_page.php">
-    <div class="container">
-      <h1>Sign Up</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-	  <label for="name"><b>Name</b></label>
-	  <input type="text" placeholder="Enter Name" name="name" required>
-	  
-	  <label for="surname"><b>Surname</b></label>
-      <input type="text" placeholder="Enter Surname" name="surname" required>
-	  
-	  <label for="specialties"><b>Specialties</b></label>
-	  <input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
+<div class="container">
 
-	  <datalist id="specialties">
-	  
-	  <% 	for(Specialty speciaclty: specialties) { %>
-					<option value="<%=speciaclty.getName() %>">			
-<% 	} %>
-				</datalist>
-				
-		<br><br>
-	   <label for="areas"><b>Area</b></label>
-	   	<input list="areas" name="area" class="search-input" placeholder="Where?">
-
-	   
-
-	   <datalist id="areas">
-      <% 	for(Area area: areas) { %>
-					<option value="<%=area.getName() %>">
+<h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+	<% if(request.getAttribute("error-message") != null) { %>
+		
+			<div class="alert alert-danger">
+				<b>Error:</b> <%=(String)request.getAttribute("error-message") %> 
+			</div>
+	
 <% } %>
-      
-	   				</datalist>
 
-	   <br><br>
-	  <label for="telephone-number"><b>Telephone Number</b></label>
-      <input type="text" placeholder="Enter Telephone Number" name="telephone-number" required>
+	<div class="row">
+		
+	    <div class="col-xs-12">
+			
+				<form class="form-horizontal" method="POST" action="registerDoctorController.jsp">
+				  
+				  <div class="form-group">
+						<label for="name" class="col-sm-2 control-label">Name</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>
+						</div>
+					  </div>
+				  
+				  <div class="form-group">
+						<label for="surname" class="col-sm-2 control-label">Surname</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="surname" id="surname" placeholder="Enter Surname" required>
+						</div>
+					  </div>
+					  
+				  <div class="form-group">
+						<label for="specialties" class="col-sm-2 control-label">Specialties </label>
+						<div class="col-sm-6">
+						  <input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
 
+	                      <datalist id="specialties">
 	  
+	                      <% 	for(Specialty speciaclty: specialties) { %>
+					                   <option value="<%=speciaclty.getName() %>">			
+                          <% 	} %>
+				          </datalist>
+						</div>
+					  </div>
+				
+		         <br><br>
+				 
+				 <div class="form-group">
+						<label for="areas" class="col-sm-2 control-label">Area </label>
+						<div class="col-sm-6">
+                          <input list="areas" name="area" class="search-input" placeholder="Where?">
+                        <datalist id="areas">
+                         <% 	for(Area area: areas) { %>
+					                <option value="<%=area.getName() %>">
+                         <% } %>
       
-	 
-	  
-	  <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address "="address" required>
-	  
-	  <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-      
-	  
-	  <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+	                      
+						</div>
+					  </div>
+				 
+				  <br><br>
 
-      <label for="psw-confirm"><b>Confirm Password</b></label>
-      <input type="password" placeholder="Confirm Password" name="psw-confirm" required>
+					  
+					  
+				  <div class="form-group">
+						<label for="telephone-number" class="col-sm-2 control-label">Telephone Number</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="telephone-number" id="telephone-number" placeholder="Enter Telephone Number" required>
+						</div>
+					  </div>
+					
+                  <div class="form-group">
+						<label for="address" class="col-sm-2 control-label">Address</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="address" id="address" placeholder="Enter Address (ex. 25 Makariou)" required>
+						</div>
+					  </div>
+					
+				  
+				  <div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email" required>
+						</div>
+					  </div>
+				   
+				  <div class="form-group">
+						<label for="username" class="col-sm-2 control-label">Username</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" required>
+						</div>
+					  </div>
+					  
+				  <div class="form-group">
+						<label for="psw" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+						</div>
+					  </div>
+				   
+				  <div class="form-group">
+						<label for="psw-confirm" class="col-sm-2 control-label">Confirm Password</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
+						</div>
+					  </div>
+	              <script src = "js/confirm.js"></script>
+                   <div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+						  <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+						</div>
+					  </div>
+				</form>
+			
+			
+				
+		</div>
+    
+	</div>
+ 
+</div>   
 
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-
-      
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signup">Sign Up</button>
-      </div>
-    </div>
-  </form>
-</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/search.js"></script>
 
 </body>
 </html>
