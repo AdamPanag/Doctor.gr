@@ -21,6 +21,7 @@
 	List<Doctor> doctors = doctorDAO.getAllDoctorsBySpecialtyAndArea(specialtySearched, areaSearched);
 	List<Specialty> specialties = specialtyDAO.getAllSpecialties();
 	List<Area> areas = areaDAO.getAllAreas();
+
 %>
 
 	
