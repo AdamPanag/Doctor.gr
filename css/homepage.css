@@ -1,0 +1,46 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+#main-slogan {
+	color: white;
+	text-align: center;
+	padding-top: 200px;
+	margin-bottom: 30px;
+}
+
+.search-input {
+	width: 100%;
+	height: 45px;
+}
+
+
+#home-header{
+	background: radial-gradient(circle, rgba(17,53,159,1) 0%, rgba(54,90,187,1) 21%, rgba(216,228,236,1) 100%);
+	width: 100%;
+	height: 100vh;
+}
+
+.fsSubmitButton
+{
+padding: 10px 15px 11px !important;
+width: 100%
+font-size: 18px !important;
+background-color: #0069d9;
+height: 45px;
+font-weight: bold;
+color: #ffffff;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border: 1px solid #0069d9;
+cursor: pointer;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+align-items: baseline;
+}

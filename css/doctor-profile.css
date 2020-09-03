@@ -1,0 +1,118 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    background-color: #E2E2E2;
+}
+
+.card {
+	position: relative;
+    top: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #e3f2fd;
+    border-radius: 0;
+}
+
+.card .card-description {
+    margin-bottom: 0.875rem;
+    padding-top: 20px;
+    font-weight: 400;
+    color: #76838f;
+}
+
+.profile-header {
+	height: 150px;
+	width: 95%;
+	position: relative;
+}
+
+.user-image {
+	position: absolute;
+	height: 120px;
+	width: 80px;
+	border-radius: 50%;
+	bottom: -50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 5;
+}
+
+.user-image img {
+	height: 110px;
+	width: 110px;
+	border-radius: 50%;
+	top: -40px;
+}
+
+.profile-card .profile-content {
+	padding: 20px 20px 20px 20px;
+}
+
+.profile-card .profile-name {
+	font-size: 1.3rem;
+	color: #00000;
+	font-weight: 600;
+	text-align: center;
+}
+
+.profile-card .profile-designation {
+	font-size: 15px;
+	color: #777;
+	text-align: center;
+}
+
+.profile-card ul.profile-info-list {
+	padding: 0;
+	margin: 10px 0;
+	list-style: none;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #777;
+}
+
+.profile-card ul.profile-info-list a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#button {
+	display: block;
+	width: 100%;
+	border: none;
+	padding:15px;
+	margin-bottom: 10px;
+	text-align: center;
+	background-color: #F1F2F3;
+}
+
+ul.about {
+    list-style: none;
+    color: black;
+	padding: 0;
+}
+
+li.about-items {
+    margin: 10px;
+    font-size: 1rem;
+}
+
+li.about-items i {
+color: #607d8b;
+}
+
+span.about-item-name {
+    width: 100px;
+    display: inline-flex;
+	    margin-left: 10px;
+}
+
+a.about-item-edit {
+    float: right;
+}
