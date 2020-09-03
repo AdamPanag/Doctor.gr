@@ -130,12 +130,14 @@
 					<div class="col-2"></div>
 					<div class="col-8">
 						<div class="container">
-							<%	if(bookings.size() == 0) {%>
+							<% boolean flag = true;	
+							if(bookings.size() == 0) {%>
 								<h4 id="not-found">You have not booked any appointments yet!</h4>
 							<% } else {
 								for(Booking booking: bookings) {
 									Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
-									if (booking_date.compareTo(current_date) >= 0) {%>
+									if (booking_date.compareTo(current_date) >= 0) {
+										flag = false; %>
 										<div class="row mini-profil">
 											<div class="col-3">
 												<img src="images/profile-pic.jpg" alt="profile" width="100%" height="150">
@@ -155,7 +157,10 @@
 										</div>
 							<%		}
 								}
-							} %>
+							} 
+								if (flag == true) {%>
+								<h4 id="no-upcoming">You do not have any upcoming appointments!</h4>
+							<%  } %>
 						</div>
 					</div>
 					<div class="col-2"></div>
