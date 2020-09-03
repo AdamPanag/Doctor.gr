@@ -49,7 +49,7 @@
                                 <div class="profile-designation"><%=doctor.getSpecialty()%></div>
                                 <ul class="profile-info-list">
                                     <a href="my-appointments_doctor.jsp"><button type="button" class="profile-info-list-item" id="button">My Appointments</button></a>
-                                    <a href="index.jsp"><button type="button" class="profile-info-list-item" id="button" href="<%= request.getContextPath() %>/logout-doctor.jsp">Log Out</button></a>
+                                    <a href="<%= request.getContextPath() %>/logout-doctor.jsp"><button type="button" class="profile-info-list-item" id="button" href="index.jsp">Log Out</button></a>
                                 </ul>
                             </div>
                         </div>
