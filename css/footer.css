@@ -1,0 +1,40 @@
+.page-content {
+  min-height: 100%;
+}
+
+.footer {
+	display: block;
+	background-color: #303036;
+	height: 300px;
+	position: relative;
+	color: white;
+}
+
+.footer .footer-bottom {
+	background-color: #343a40;
+	color: #686868;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	padding-top: 12px;
+}
+
+.footer-content {
+	height: 250px;
+	display: flex;
+}
+
+.footer .footer-content .footer-section {
+	flex: 1;
+	padding: 20px;
+}
+
+.footer .footer-content .footer-section .social{
+	display: flex;
+}
+
+
+
