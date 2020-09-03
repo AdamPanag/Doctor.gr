@@ -40,16 +40,17 @@
 <body>
 	<!-- Navigation Bar-->	
 <%
-	if(patient != null) {
-%>
-		<%@ include file="navbar-default.jsp" %>
-
-<%
-	} else if(doctor != null) {
+	if(doctor != null) {
 %>
 		<%@ include file="navbar-doctor-appointments.jsp" %>
 
+<%
+	} else {
+%>
+		<%@ include file="navbar-homepage-default.jsp" %>
+
 <%  } %>
+
 
 	<!-- New Search Bar -->
 	<div id="new-search-bar">

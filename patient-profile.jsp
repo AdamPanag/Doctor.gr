@@ -16,6 +16,37 @@
 	LocalDateTime now = LocalDateTime.now();  
 	String dt = dtf.format(now);
 	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
+
+	//sort bookings by order
+	List<Booking> bookingsSorted;
+	String newDateString1;
+	String newDateString2;
+	SimpleDateFormat sdfHour = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+	// for (int i = 0; i < bookings.size(); i++) {
+	// 	newDateString = bookings.get(i).getDate() + " " + bookings.get(i).getHour();
+	// 	bookings.get(i).setDate(sdfHour.parse(newDateString));
+	// }
+
+	// Booking o1;
+	// Booking o3;
+	// for (int i = 0; i < bookings.size() - 1; i++) {
+	// 	//o1 = bookings.get(i);
+	// 	newDateString1 = bookings.get(i).getDate() + " " + bookings.get(i).getHour();
+	// 	//o3 = bookings.get(i + 1);
+	// 	newDateString2 = bookings.get(i + 1).getDate() + " " + bookings.get(i + 1).getHour();
+
+	// 	bookings.sort((o1, o3) --> sdfHour.parse(newDateString1).compareTo(sdfHour.parse(newDateString2)));
+	// }
+
+	// Collections.sort(bookings, new Comparator<Booking>() {
+
+	// 	SimpleDateFormat sdfHour = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+ //  		public int compare(Booking o1, Booking o2) {
+
+ //      		return sdfHour.parse(o1.getDate() + " " + o1.getHour()).compareTo(sdfHour.parse(o2.getDate() + " " + o2.getHour()));
+ //  		}
+	// });
 %>
 
 <!DOCTYPE html>
