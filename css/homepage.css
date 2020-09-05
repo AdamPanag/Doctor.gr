@@ -6,23 +6,33 @@ html,body {
     overflow-x: hidden; 
 }
 
-#main-slogan {
+.home-header{
+	background: radial-gradient(circle, rgba(17,53,159,1) 0%, rgba(54,90,187,1) 21%, rgba(216,228,236,1) 100%);
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+  	align-items: center; /* Vertical */
+  	justify-content: center; /* Horizontal */
+}
+
+.main-slogan {
 	color: white;
 	text-align: center;
-	padding-top: 200px;
-	margin-bottom: 30px;
+}
+
+.search-form {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.form-content {
+	display: flex;
 }
 
 .search-input {
 	width: 100%;
 	height: 45px;
-}
-
-
-#home-header{
-	background: radial-gradient(circle, rgba(17,53,159,1) 0%, rgba(54,90,187,1) 21%, rgba(216,228,236,1) 100%);
-	width: 100%;
-	height: 100vh;
 }
 
 .fsSubmitButton
