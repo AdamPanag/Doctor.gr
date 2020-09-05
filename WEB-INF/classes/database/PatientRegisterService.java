@@ -11,9 +11,7 @@ import java.util.List;
 import model.User;
 import model.Patient;
 
-
 public class PatientRegisterService {
-
 
 	public void register(Patient patient) throws ApplicationCustomExceptionDatabase, Exception {
 
@@ -64,7 +62,6 @@ public class PatientRegisterService {
 		}
 
 	}// End of register
-
 
 	public void updatePatient(Patient patient) throws ApplicationCustomExceptionDatabase, Exception {
 

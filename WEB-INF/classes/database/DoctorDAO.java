@@ -19,11 +19,30 @@ public class DoctorDAO {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-
-		String sqlQuery = "SELECT * "
-						+ "FROM doctors "
-						+ "WHERE specialty = '" + specialty + "' "
-						+ "AND area = '" + area + "';";
+		
+		String sqlQuery;
+		
+		if(specialty != "" && area != "") {
+			sqlQuery = "SELECT * "
+					 + "FROM doctors "
+					 + "WHERE specialty = '" + specialty + "' "
+					 + "AND area = '" + area + "';";
+			
+		} else if(specialty != "") {
+			sqlQuery = "SELECT * "
+					 + "FROM doctors "
+					 + "WHERE specialty = '" + specialty + "';";
+			
+		} else if(area != "") {
+			sqlQuery = "SELECT * "
+					 + "FROM doctors "
+					 + "WHERE area = '" + area + "';";
+			
+		} else {
+			sqlQuery = "SELECT * "
+					 + "FROM doctors " + ";";
+			
+		}
 
 		try {
 			con = db.getConnection(); //get Connection

@@ -26,6 +26,7 @@
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" type="text/css" href="css/homepage.css">
+  <link href="css/footer.css" rel="stylesheet">
 
 </head>
 <body>
@@ -44,36 +45,42 @@
 <%  } %>
 
 <!-- Page Content -->
-<header id="home-header">
-	<h1 id="main-slogan">Find your doctor and book an appointment!</h1>
-	<form action="search-result.jsp" method="POST">
-		<div class="row">
-			<div class="col-lg-2 col-12"></div>
-			<div class="col-lg-4">
-				<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
-				<datalist id="specialties">
-<% 	for(Specialty speciaclty: specialties) { %>
-					<option value="<%=speciaclty.getName() %>">			
-<% 	} %>
-				</datalist>
-			</div>
-			<div class="col-lg-3 col-12">
-				<input list="areas" name="area" class="search-input" placeholder="Where?">
-				<datalist id="areas">
-<% 	for(Area area: areas) { %>
-					<option value="<%=area.getName() %>">
-<% } %>
-				</datalist>
-			</div>
-			<div class="col-lg-1 col-12">
-				<input type="submit" id="submit" class="fsSubmitButton" value="Search">
-			</div>
-			<div class="col-lg-2"></div>
+<div class="page-content">
+	<header class="home-header">
+		<div class="main-slogan">
+			<h1>Find your doctor and book an appointment!</h1>
 		</div>
-	</form>
-	
-</header>
+		<div class="search-form">
+			<form action="search-result.jsp" method="POST">
+				<div class="form-content">
+					<div class="col-lg-2 col-12"></div>
+					<div class="col-lg-4">
+						<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
+						<datalist id="specialties">
+		<% 	for(Specialty speciaclty: specialties) { %>
+							<option value="<%=speciaclty.getName() %>">			
+		<% 	} %>
+						</datalist>
+					</div>
+					<div class="col-lg-3 col-12">
+						<input list="areas" name="area" class="search-input" placeholder="Where?">
+						<datalist id="areas">
+		<% 	for(Area area: areas) { %>
+							<option value="<%=area.getName() %>">
+		<% } %>
+						</datalist>
+					</div>
+					<div class="col-lg-1 col-12">
+						<input type="submit" id="submit" class="fsSubmitButton" value="Search">
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+			</form>
+		</div>
+	</header>
+</div>
 
+<%@ include file="footer.jsp"%>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

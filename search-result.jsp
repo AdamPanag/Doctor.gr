@@ -21,6 +21,7 @@
 	List<Doctor> doctors = doctorDAO.getAllDoctorsBySpecialtyAndArea(specialtySearched, areaSearched);
 	List<Specialty> specialties = specialtyDAO.getAllSpecialties();
 	List<Area> areas = areaDAO.getAllAreas();
+
 %>
 
 	
@@ -35,22 +36,24 @@
 
 	<!-- Custom styles for this template -->
     <link href="css/search-result.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
 </head>
 
 <body>
 	<!-- Navigation Bar-->	
 <%
-	if(patient != null) {
-%>
-		<%@ include file="navbar-default.jsp" %>
-
-<%
-	} else if(doctor != null) {
+	if(doctor != null) {
 %>
 		<%@ include file="navbar-doctor-appointments.jsp" %>
 
+<%
+	} else {
+%>
+		<%@ include file="navbar-homepage-default.jsp" %>
+
 <%  } %>
 
+<div class="page-content">
 	<!-- New Search Bar -->
 	<div id="new-search-bar">
 		<form action="search-result.jsp" method="get">
@@ -130,11 +133,11 @@
 				</div>
 			</div>
 			<div class="col-2"></div>
-		</div>
-
-		
+		</div>	
 	</div>
-	
+</div>
+<%@ include file="footer.jsp"%>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

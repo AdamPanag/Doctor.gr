@@ -50,6 +50,7 @@ public class PatientDataValidator {
 
                 return password.matches(
 					"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" );
+
 	}
 
 

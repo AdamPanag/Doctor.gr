@@ -6,8 +6,6 @@
 <html lang="en">
 	<head>
 		
-		
-
 		<title>Error Page</title>
 		
 	</head>
