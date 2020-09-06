@@ -4,13 +4,14 @@
 
 
 
-
 <!DOCTYPE html>
 
 
 <html>
 <head>
   <link rel="stylesheet" href="css/doctor-client.css">
+  
+		
 </head>
 
 
@@ -61,7 +62,8 @@
 						  <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email" required>
 						</div>
 					  </div>
-				   
+				  
+				  <script src = "js/availability.js"></script>
 				  <div class="form-group">
 						<label for="username" class="col-sm-2 control-label">Username</label>
 						<div class="col-sm-6">
@@ -72,14 +74,14 @@
 				  <div class="form-group">
 						<label for="psw" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-6">
-						  <input type="text" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+						  <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
 						</div>
 					  </div>
 				   
 				  <div class="form-group">
 						<label for="psw-confirm" class="col-sm-2 control-label">Confirm Password</label>
 						<div class="col-sm-6">
-						  <input type="text" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
+						  <input type="password" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
 						</div>
 					  </div>
 	               <script src = "js/confirm.js"></script>
