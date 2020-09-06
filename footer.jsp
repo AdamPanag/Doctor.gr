@@ -15,7 +15,7 @@
 					<h1 class="logo-text">Doctor.gr</h1>
 					<p class="about-text">
 						This web application was created by four students of the
-						Athens University of Economics & Business for the neads
+						Athens University of Economics & Business for the needs
 						of the course Information Systems Development and Architecture.
 					</p>
 					<div class="contact">

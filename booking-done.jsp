@@ -22,7 +22,9 @@
     <link href="css/booking-done.css" rel="stylesheet">	
 </head>
 <body>
-	<%@ include file="navbar-patient.jsp" %>
+
+    <!-- Navigation Bar-->
+	<%@ include file="navbar-default-patient.jsp" %>
 
 	<div id="content">
 		<div class="container">

@@ -25,12 +25,13 @@
 							<a class="nav-link" href="contactUs.jsp">Contact us</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Register</a>
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=doctor.getFullName()%><span class="sr-only">(current)</span></a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="client sign-up-in.jsp">Patient</a>
-								<a class="dropdown-item" href="doctor sign-up-in.jsp">Doctor</a>
-							</div>
-						</li>			
+								<a class="dropdown-item" href="doctor-profile.jsp">Settings</a>
+								<a class="dropdown-item" href="my-appointments_doctor.jsp">My Appointments</a>
+								<a class="dropdown-item" href="<%= request.getContextPath() %>/logout-doctor.jsp"><span class="sr-only" href="index.jsp"></span> Log out</a>
+                        </div>
+						</li>
 					</ul>
 				</div>
 			</div>

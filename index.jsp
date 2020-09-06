@@ -32,17 +32,13 @@
 <body>
 
 <!-- Navigation Bar-->
-<%
-	if(doctor != null) {
-%>
-		<%@ include file="navbar-doctor-appointments.jsp" %>
-
-<%
-	} else {
-%>
+<%	if(doctor != null) {	%>
+		<%@ include file="navbar-homepage-doctor.jsp" %>
+<%	} else if (patient != null){	%>
+		<%@ include file="navbar-homepage-patient.jsp" %>
+<%  } else {	%>
 		<%@ include file="navbar-homepage-default.jsp" %>
-
-<%  } %>
+<%	}	%>
 
 <!-- Page Content -->
 <div class="page-content">

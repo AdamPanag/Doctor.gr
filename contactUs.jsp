@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%	Patient patient = (Patient) session.getAttribute("patient-database-obj");
+	Doctor doctor = (Doctor) session.getAttribute("doctor-database-obj");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +19,17 @@
 
 <body>
 
+	<!-- Navigation Bar-->
+	<%	if(doctor != null) {	%>
+		<%@ include file="navbar-homepage-doctor.jsp" %>
+	<%	} else if (patient != null){	%>
+		<%@ include file="navbar-homepage-patient.jsp" %>
+	<%  } else {	%>
+		<%@ include file="navbar-homepage-default.jsp" %>
+	<%	}	%>
+	
+	
+<div class="page-content">
 	<div class="bg-contact2" style="background-image: url('images/homepage_image.jpg');">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
@@ -48,6 +63,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

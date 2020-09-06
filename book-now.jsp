@@ -34,7 +34,7 @@
 <body>
 
     <!-- Navigation Bar-->
-	<%@ include file="navbar-patient.jsp" %>
+	<%@ include file="navbar-default-patient.jsp" %>
 
 	<%
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
