@@ -142,7 +142,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-						+ "WHERE doctorId = '" + doctorId + "' ORDER BY DATE;";
+						+ "WHERE doctorId = '" + doctorId + "' ORDER BY HOUR;";
 
 		try {
 			con = db.getConnection(); //get Connection
@@ -181,7 +181,7 @@ public class BookingDAO {
 		ResultSet rs = null;
 
 		String sqlQuery = "SELECT * FROM bookings "
-								+ "WHERE patientId = '" + patientId + "' ORDER BY date;";
+								+ "WHERE patientId = '" + patientId + "' ORDER BY HOUR;";
 
 		try {
 			con = db.getConnection(); //get Connection

@@ -17,9 +17,21 @@
 	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
 	LocalDateTime now = LocalDateTime.now();  
-	String dt = dtf.format(now);
-	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+	Date current_date = sdf.parse(dtf.format(now));
 
+	Calendar day = Calendar.getInstance();
+	day.setTime(sdf.parse(dtf.format(now)));	
+	
+	String dt_start;
+	String dt_end;
+	
+	int weeksToMove;
+    if(request.getParameter("weeksToMove") != null) {
+    	weeksToMove = Integer.parseInt(request.getParameter("weeksToMove"));
+	} else {
+		weeksToMove = 0;
+	}
 %>
 
 <!DOCTYPE html>
@@ -67,36 +79,26 @@
 			<div class="card-body">
 				<p class="card-tittle font-weight-bold">My Appointments</p>
 				<hr>
-				<div class="wrapper">
-					<div class="calendar">
-						<div class="month">
-							<div class="prev" onclick="moveDate('prev')">
-								<span>&#10094;</span>
-							</div>
-							<div>
-								<h2 id="month"></h2>
-								<p id="date_str"></p>
-							</div>
-							<div class="next" onclick="moveDate('next')">
-								<span>&#10095;</span>
-							</div>
+					<div class="row">
+						<div class="arrow" onclick="moveDate('prev', '<%=weeksToMove%>')">
+							<span>&#10094;</span>
+						</div>		
+						<%	day.add(Calendar.DATE, weeksToMove * 7);
+							dt_start = sdf.format(day.getTime());
+							day.add(Calendar.DATE, 6);
+							dt_end = sdf.format(day.getTime());
+							day.add(Calendar.DATE, -6);
+						%>			
+						<h5>From <%=dt_start%> to <%=dt_end%></h5>
+						<br>
+						<div class="arrow" onclick="moveDate('next', '<%=weeksToMove%>')">
+							<span>&#10095;</span>
 						</div>
-						<div class="weekdays">
-							<div>Sun</div>
-							<div>Mon</div>
-							<div>Tue</div>
-							<div>Wed</div>
-							<div>Thu</div>
-							<div>Fri</div>
-							<div>Sat</div>
-						</div>
-						<div class="days"></div>
 					</div>
-				</div>
-				<script src="js/calendar.js"></script>
 			</div>
+				
 			<div class="container" id="appointments-list">
-				<div class="row appointment">
+					<div class="row appointment">
 					<div class="col-2"></div>
 					<div class="col-8">
 						<div class="container">
@@ -106,7 +108,9 @@
 							<% } else {
 								for(Booking booking: bookings) {
 									Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
-									if (booking_date.compareTo(current_date) >= 0) {
+									Date from_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt_start);
+									Date to_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt_end);
+									if (booking_date.compareTo(from_date) >= 0 && booking_date.compareTo(to_date) <= 0) {
 										flag = false; %>
 										<div class="row mini-profil">
 											<div class="col-3">
@@ -129,13 +133,18 @@
 								}
 							} 
 								if (flag == true) {%>
-								<h4 id="no-upcoming">You do not have any upcoming appointments!</h4>
+								<h4 id="no-upcoming">Νο appointments!</h4>
 							<%  } %>
 						</div>
 					</div>
 					<div class="col-2"></div>
 				</div>
-			</div> 
+			
+			
+			
+			
+			</div>
+ 
 		</div>
 	</div>
 		
@@ -145,6 +154,18 @@
 		  if(r == true) {
 		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancelation-controller.jsp?id=" + bookingId;
 		  }
+		}
+	</script>
+	
+	<script>
+	function moveDate(para , weeksToMove) {
+			if(para == "prev") {
+				weeksToMove--;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/patient-profile.jsp?weeksToMove=" + weeksToMove;
+			} else if(para == 'next') {
+				weeksToMove++;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/patient-profile.jsp?weeksToMove=" + weeksToMove;
+			}
 		}
 	</script>
 		
