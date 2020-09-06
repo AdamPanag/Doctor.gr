@@ -17,8 +17,20 @@
 	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
 	LocalDateTime now = LocalDateTime.now();  
-	String dt = dtf.format(now);
-	Date current_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt);
+	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+	Date current_date = sdf.parse(dtf.format(now));
+
+	Calendar day = Calendar.getInstance();
+	day.setTime(sdf.parse(dtf.format(now)));	
+	
+	String dt_this;
+	
+	int daysToMove;
+    if(request.getParameter("daysToMove") != null) {
+    	daysToMove = Integer.parseInt(request.getParameter("daysToMove"));
+	} else {
+		daysToMove = 0;
+	}
 %>
 
 <!DOCTYPE html>
@@ -36,56 +48,51 @@
 
 </head>
 
-<body onload="renderDate()">
+<body>
 
 	<!-- Navigation Bar-->
 	<%@ include file="navbar-doctor-appointments.jsp" %>
 
-	<!-- Page Content -->
+		<!-- Page Content -->
 	<div class="col-md-8 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
 				<p class="card-tittle font-weight-bold">My Appointments</p>
 				<hr>
-				<div class="wrapper">
-					<div class="calendar">
-						<div class="month">
-							<div class="prev" onclick="moveDate('prev')">
-								<span>&#10094;</span>
-							</div>
-							<div>
-								<h2 id="month"></h2>
-								<p id="date_str"></p>
-							</div>
-							<div class="next" onclick="moveDate('next')">
-								<span>&#10095;</span>
-							</div>
+					<div class="row">
+						<div class="arrow" onclick="moveDate('prev', '<%=daysToMove%>')">
+							<span>&#10094;</span>
+						</div>		
+						<%	day.add(Calendar.DATE, daysToMove);
+							dt_this = sdf.format(day.getTime());
+							
+							if (daysToMove == 0) {
+						%>			
+						<h5>Today, <%=dt_this%></h5>
+							<%} else {%>
+						<h5><%=dt_this%></h5>
+							<%}%>
+						<br>
+						<div class="arrow" onclick="moveDate('next', '<%=daysToMove%>')">
+							<span>&#10095;</span>
 						</div>
-						<div class="weekdays">
-							<div>Sun</div>
-							<div>Mon</div>
-							<div>Tue</div>
-							<div>Wed</div>
-							<div>Thu</div>
-							<div>Fri</div>
-							<div>Sat</div>
-						</div>
-						<div class="days"></div>
 					</div>
-				</div>
-				<script src="js/calendar.js"></script>
 			</div>
+	
 			<div class="container" id="appointments-list">
 				<div class="row appointment">
 					<div class="col-2"></div>
 					<div class="col-8">
 						<div class="container">
-							<%	if(bookings.size() == 0) {%>
-								<h4 id="not-found">You have not booked any appointments yet!</h4>
+							<%	boolean flag = true;	
+							if(bookings.size() == 0) {%>
+								<h4 id="not-found">You do not have any appointments yet!</h4>
 							<% } else {
 								for(Booking booking: bookings) {
 									Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
-									if (booking_date.compareTo(current_date) >= 0) {%>
+									Date this_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt_this);
+									if (booking_date.compareTo(this_date) == 0) { 
+										flag = false; %>
 										<div class="row mini-profil">
 											<div class="col-5">
 												<%Patient patient = patientDAO.getPatientInfo(booking.getPatientId());%>
@@ -101,12 +108,16 @@
 										</div>
 							<%		}
 								}
-							} %>
+							} 
+							%>
+							<% if (flag == true) {%>
+								<h4 id="no-upcoming">Νο appointments on <%=dt_this%>!</h4>
+							<%  } %>
 						</div>
 					</div>
 					<div class="col-2"></div>
 				</div>
-			</div> 
+			</div>
 		</div>
 	</div>
 	
@@ -116,6 +127,18 @@
 		  if(r == true) {
 		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancelation-controller.jsp?id=" + bookingId;
 		  }
+		}
+	</script>
+	
+	<script>
+	function moveDate(para , daysToMove) {
+			if(para == "prev") {
+				daysToMove--;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/my-appointments_doctor.jsp?daysToMove=" + daysToMove;
+			} else if(para == 'next') {
+				daysToMove++;
+				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/my-appointments_doctor.jsp?daysToMove=" + daysToMove;
+			}
 		}
 	</script>
 	

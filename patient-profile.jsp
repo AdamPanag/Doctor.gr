@@ -49,7 +49,7 @@
 
 </head>
 
-<body onload="renderDate()">
+<body>
 
 	<!-- Navigation Bar-->
 	<%@ include file="navbar-patient.jsp" %>
@@ -139,12 +139,7 @@
 					</div>
 					<div class="col-2"></div>
 				</div>
-			
-			
-			
-			
 			</div>
- 
 		</div>
 	</div>
 		
