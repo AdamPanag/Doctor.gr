@@ -1,5 +1,12 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import model.Patient;
+
 public class PatientDataValidator {
 
 
@@ -37,6 +44,18 @@ public class PatientDataValidator {
         java.util.regex.Matcher m = p.matcher(email);
 
         return m.matches();
+	}
+	
+	public boolean emailExists(String email, ArrayList<String> emails) {
+		boolean exists = false;
+		
+		for(int i = 0; i < emails.size(); i++) {
+			if (email.equals(emails.get(i))) {
+				exists = true;
+			}
+		}
+		
+		return exists;
 	}
 
 	public boolean isUsernameValid(String username) {

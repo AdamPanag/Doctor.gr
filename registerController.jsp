@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ page import="database.*, model.*, java.util.List" %>
+<%@ page import="database.*, model.*, java.util.*" %>
 
 <%@ page errorPage="error.jsp"%>
 
 <%
 
 //read parameters from request
-
 
 String name = request.getParameter("name");
 String surname = request.getParameter("surname");
@@ -15,12 +14,9 @@ String email = request.getParameter("email");
 String username = request.getParameter("username");
 String password = request.getParameter("password");
 
-
-
 PatientRegisterService patientRegisterService = new PatientRegisterService(); 
-
-
 PatientDataValidator pavalidator = new PatientDataValidator();
+PatientDAO patientDAO = new PatientDAO();
 
 int countErrors = 0;
 String errorMessage = "";
@@ -66,15 +62,25 @@ try {
 		//errorPage.forward(request, response);
 		//return;
 	}
-	 
+	
 	//validate email
-	if( !pavalidator.isValidEmailAddress( email ) ) {
+	if( !pavalidator.isValidEmailAddress( email )) {
 		errorMessage += "<li>Email is not valid</li>";
 		countErrors++;
 		//request.setAttribute( "error-message", "Email is not valid" );
 		//errorPage.forward(request, response);
 		//return;
 	}
+
+	//get all patient emails from database
+	ArrayList<String> emails = patientDAO.getAllPatientEmails(email); 
+	
+	//check if emails exists
+	if(pavalidator.emailExists(email, emails)) {
+		errorMessage += "<li>Email exists</li>";
+		countErrors++;
+	}
+
 	if(username != null) {
 		//For the Greek characters.
 		username = new String(username.getBytes("ISO-8859-1"), "UTF-8");

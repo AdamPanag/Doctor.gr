@@ -82,11 +82,7 @@
 						  <input type="text" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
 						</div>
 					  </div>
-<<<<<<< HEAD
-	
-=======
-	               <script src = "js/confirm.js"></script>
->>>>>>> 2d7f8fcc299def29f1d5205b8f8b8de6a6ef2cf6
+
                    <div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						  <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
@@ -102,6 +98,8 @@
 	</div>
 	
  </div>
+
+<script src = "js/confirm.js"></script>
 
 </body>
 </html>
