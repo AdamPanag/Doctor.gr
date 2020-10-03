@@ -6,6 +6,12 @@
 	
 	BookingDAO bookingDAO = new BookingDAO();
 	bookingDAO.cancelAnAppointment(appointmentId);
+	
+	if (session.getAttribute("patient-database-obj") != null) {
 %>
-
 		<jsp:forward page="patient-profile.jsp" />
+<%
+	} else {
+%>
+		<jsp:forward page="my-appointments_doctor.jsp" />
+	<% } %>

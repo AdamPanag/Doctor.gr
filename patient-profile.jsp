@@ -49,7 +49,7 @@
 
 </head>
 
-<body>
+<body onload="renderDate()">
 
 	<!-- Navigation Bar-->
 	<%@ include file="navbar-patient.jsp" %>
