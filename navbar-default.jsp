@@ -19,7 +19,7 @@
 							<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">About us</a>
+							<a class="nav-link" href="aboutUs.jsp">About us</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="contactUs.jsp">Contact us</a>
