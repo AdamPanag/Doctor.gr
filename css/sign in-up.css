@@ -52,14 +52,6 @@ body{
   text-align: center;
 }
 
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 50%;
-}
-
-
-
 
 
 input, button{
@@ -82,28 +74,6 @@ input, button{
 
 }
 
-h2{
-  width: 100%;
-  font-size: 30px;
-  text-align: center;
-}
-
-
-
-label{
-  display:block;
-  width: 260px;
-  margin: 25px auto;
-  text-align: center;
-}
-
-label span{
-  font-size: 14px;
-  font-weight: 600;
-  color: #505f75;
-  text-transform: uppercase;
-  
-}
 
 input{
   display: block;
@@ -146,18 +116,6 @@ button:hover {
 }
 
 
-.forgot-pass{
-  margin-top: 15px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: #0c0101;
-  cursor: pointer;
-}
-
-.forgot-pass:hover{
-  color: red;
-}
 
 
 .split right h2{
@@ -167,19 +125,7 @@ button:hover {
 }
 {box-sizing: border-box;}
 
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
+
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -225,15 +171,7 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
 
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
 
 
 

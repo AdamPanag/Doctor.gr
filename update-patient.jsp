@@ -55,7 +55,16 @@
 		if( !pavalidator.isUsernameValid( username ) ) {
 			errorMessage += "<li>Username should have from 3 (min) to 45 (max) characters</li>";
 			countErrors++;
-		}	
+		}
+
+		//get all patient usernames from database
+		ArrayList<String> usernames = patientDAO.getAllPatientUsernames(username); 
+	
+		//check if usernames exist
+		if(pavalidator.usernameExists(username, usernames)) {
+			errorMessage += "<li>Username exists</li>";
+			countErrors++;
+		}
 
 		//validate password
 		if( !pavalidator.isPasswordValid( password ) ) {
@@ -74,7 +83,16 @@
 			errorMessage += "<li>Email is not valid</li>";
 			countErrors++;
 		}
+
+		//get all patient emails from database
+		ArrayList<String> emails = patientDAO.getAllPatientEmails(email); 
 	
+		//check if emails exists
+		if(pavalidator.emailExists(email, emails)) {
+			errorMessage += "<li>Email exists</li>";
+			countErrors++;
+		}
+
 		if (countErrors > 0) {	
 			errorMessage = "<ol>" + errorMessage + "</ol>";
 			request.setAttribute( "error-message", errorMessage);

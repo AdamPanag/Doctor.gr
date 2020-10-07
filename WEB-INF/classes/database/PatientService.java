@@ -10,13 +10,13 @@ import model.Patient;
 public class PatientService {
 
 	/**
-	 * This method is used to authenticate a user.
+	 * This method is used to authenticate a patient.
 	 *
 	 * @param username,
 	 *            String
 	 * @param password,
 	 *            String
-	 * @return User, the User object
+	 * @return Patient, the Patient object
 	 * @throws Exception,
 	 *             if the credentials are not valid
 	 */
@@ -60,7 +60,7 @@ public class PatientService {
 			stmt.close();
 			db.close();
 
-			return patient; // return the user
+			return patient; // return the patient
 
 		} catch (Exception e) {
 

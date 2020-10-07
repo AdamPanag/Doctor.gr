@@ -19,29 +19,29 @@ public class DoctorDAO {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		
+
 		String sqlQuery;
-		
+
 		if(specialty != "" && area != "") {
 			sqlQuery = "SELECT * "
 					 + "FROM doctors "
 					 + "WHERE specialty = '" + specialty + "' "
 					 + "AND area = '" + area + "';";
-			
+
 		} else if(specialty != "") {
 			sqlQuery = "SELECT * "
 					 + "FROM doctors "
 					 + "WHERE specialty = '" + specialty + "';";
-			
+
 		} else if(area != "") {
 			sqlQuery = "SELECT * "
 					 + "FROM doctors "
 					 + "WHERE area = '" + area + "';";
-			
+
 		} else {
 			sqlQuery = "SELECT * "
 					 + "FROM doctors " + ";";
-			
+
 		}
 
 		try {
@@ -214,5 +214,90 @@ public class DoctorDAO {
 
 
 	} // End of updateDoctor
+
+
+
+	public ArrayList<String> getAllDoctorEmails(String email) throws Exception {
+			ArrayList<String> emails = new ArrayList<String>();
+
+			DB db = new DB();
+			Connection con = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+
+			String sqlQuery = "SELECT email "
+							+ "FROM doctors;";
+
+			try {
+				con = db.getConnection(); //get Connection
+				stmt = con.prepareStatement(sqlQuery);
+				rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					emails.add(rs.getString("email"));
+				}
+
+
+				rs.close();
+				stmt.close();
+				db.close();
+
+				return emails;
+
+			} catch (Exception e) {
+
+				throw new Exception("An error occured while getting doctor emails from database: "
+									+ e.getMessage());
+
+			} finally {
+
+				if(con != null)
+					con.close();
+			}
+
+		}
+
+
+
+		public ArrayList<String> getAllDoctorUsernames(String username) throws Exception {
+					ArrayList<String> usernames = new ArrayList<String>();
+
+					DB db = new DB();
+					Connection con = null;
+					PreparedStatement stmt = null;
+					ResultSet rs = null;
+
+					String sqlQuery = "SELECT username "
+									+ "FROM doctors;";
+
+					try {
+						con = db.getConnection(); //get Connection
+						stmt = con.prepareStatement(sqlQuery);
+						rs = stmt.executeQuery();
+
+						while (rs.next()) {
+							usernames.add(rs.getString("username"));
+						}
+
+
+						rs.close();
+						stmt.close();
+						db.close();
+
+						return usernames;
+
+					} catch (Exception e) {
+
+						throw new Exception("An error occured while getting doctor usernames from database: "
+											+ e.getMessage());
+
+					} finally {
+
+						if(con != null)
+							con.close();
+					}
+
+		}
+
 
 }

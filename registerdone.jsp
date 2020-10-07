@@ -18,7 +18,7 @@ if(request.getAttribute("patientObj") != null) {
 	* In that case, redirect back to form.
 	*/
 	
-	response.sendRedirect("client.jsp");
+	response.sendRedirect("patient-register.jsp");
 	return;
 }
 
@@ -28,8 +28,12 @@ if(request.getAttribute("patientObj") != null) {
 <html lang="en">
 	<head>
 	
-		
+	
+    <link rel="stylesheet" href="css/register-done.css">
+	
 	<title> Registration done</title>
+	<meta http-equiv="refresh" content="1;url=<%=request.getContextPath() %>/index.jsp" />
+
 	</head>
 
 	<body>
@@ -38,7 +42,6 @@ if(request.getAttribute("patientObj") != null) {
 
 		<div class="container">
 
-			<!-- Page Title -->
 			<div class="page-header">
 				<h1>Registration done</h1>				
 				
@@ -48,16 +51,15 @@ if(request.getAttribute("patientObj") != null) {
 				<div class="col-xs-12 col-md-10 col-lg-8">
 
 					<h2>Your registration completed successfully</h2>
-					<div class="alert alert-success">
-						<b>Patient Details:</b> <%=patient %>					
-					</div>
+					<h3>You can now login!!</h3>
+					
 				</div>
 
 			</div>
 			
 			
 		</div>
-		<!-- /container -->
+		
 
 	
 	</body>

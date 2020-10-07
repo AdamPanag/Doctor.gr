@@ -10,15 +10,17 @@
 	List<Area> areas = areaDAO.getAllAreas();
 %>
 
+
+
 <!DOCTYPE html>
 
 <html>
 <head>
-  <link rel="stylesheet" href="css/doctor-client.css">
+  <link rel="stylesheet" href="css/doctor-patient.css">
+
 </head>
 
 <body>
-
 <div class="container">
 
 <h1>Sign Up</h1>
@@ -117,21 +119,21 @@
 				  <div class="form-group">
 						<label for="psw" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-6">
-						  <input type="text" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+						  <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
 						</div>
 					  </div>
 				   
 				  <div class="form-group">
 						<label for="psw-confirm" class="col-sm-2 control-label">Confirm Password</label>
 						<div class="col-sm-6">
-						  <input type="text" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
+						  <input type="password" class="form-control" name="psw-confirm" id="psw-confirm" placeholder="Confirm Password" required>
 						</div>
 					  </div>
 	              <script src = "js/confirm.js"></script>
                    <div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 						  <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
-						  <button type="reset" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+						  <button type="reset" style="background-color:red;" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 						</div>
 					  </div>
 				</form>
@@ -143,10 +145,6 @@
 	</div>
  
 </div>   
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -103,7 +103,6 @@ public class PatientDAO {
 
 	} // End of updatePatient
 
-	
 	public ArrayList<String> getAllPatientEmails(String email) throws Exception {
 		ArrayList<String> emails = new ArrayList<String>();
 
@@ -141,6 +140,46 @@ public class PatientDAO {
 			if(con != null)
 				con.close();
 		}
+
+	}
+
+	public ArrayList<String> getAllPatientUsernames(String username) throws Exception {
+			ArrayList<String> usernames = new ArrayList<String>();
+
+			DB db = new DB();
+			Connection con = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+
+			String sqlQuery = "SELECT username "
+							+ "FROM patients;";
+
+			try {
+				con = db.getConnection(); //get Connection
+				stmt = con.prepareStatement(sqlQuery);
+				rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					usernames.add(rs.getString("username"));
+				}
+
+
+				rs.close();
+				stmt.close();
+				db.close();
+
+				return usernames;
+
+			} catch (Exception e) {
+
+				throw new Exception("An error occured while getting patient usernames from database: "
+									+ e.getMessage());
+
+			} finally {
+
+				if(con != null)
+					con.close();
+			}
 
 	}
 }

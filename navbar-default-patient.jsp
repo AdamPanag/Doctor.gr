@@ -19,13 +19,13 @@
 							<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">About us</a>
+							<a class="nav-link" href="aboutUs.jsp">About us</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="contactUs.jsp">Contact us</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=patient.getFullName()%><span class="sr-only">(current)</span></a>
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=patient.getFullName()%></a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="patient-profile.jsp">My Profile</a>
 								<a class="dropdown-item" href="<%= request.getContextPath() %>/logout-patient.jsp"><span class="sr-only" href="index.jsp"></span> Log out</a>

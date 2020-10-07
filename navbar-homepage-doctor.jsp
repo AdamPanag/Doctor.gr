@@ -19,13 +19,13 @@
 							<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">About us</a>
+							<a class="nav-link" href="aboutUs.jsp">About us</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="contactUs.jsp">Contact us</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=doctor.getFullName()%><span class="sr-only">(current)</span></a>
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=doctor.getFullName()%></a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="doctor-profile.jsp">Settings</a>
 								<a class="dropdown-item" href="my-appointments_doctor.jsp">My Appointments</a>

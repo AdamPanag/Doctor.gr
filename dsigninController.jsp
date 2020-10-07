@@ -17,7 +17,7 @@ try {
 	
 	request.setAttribute("message", e.getMessage());
 %>
-	<jsp:forward page="doctor sign-up-in.jsp"/>	
+	<jsp:forward page="doctor-login-register.jsp"/>	
 <%		
 }
 
@@ -25,6 +25,6 @@ response.sendRedirect("my-appointments_doctor.jsp");
 
 %>	
 <%--
-Used in Lesson5
+
 <jsp:forward page="index.jsp"/>
---%>
+--%> 

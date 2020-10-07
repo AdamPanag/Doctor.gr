@@ -46,9 +46,9 @@ public class Booking {
 	
 	public String getDateReverse() {
 		String dateR = "";
-//		for (int i = date.length() - 1; i >= 0; i--) {
-//			dateR += date.charAt(i);
-//		}
+		for (int i = date.length() - 1; i >= 0; i--) {
+			dateR += date.charAt(i);
+		}
 		
 		return dateR;
 	}

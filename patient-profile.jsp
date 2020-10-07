@@ -49,7 +49,7 @@
 
 </head>
 
-<body>
+<body onload="renderDate()">
 
 	<!-- Navigation Bar-->
 	<%@ include file="navbar-patient.jsp" %>
@@ -89,7 +89,7 @@
 							dt_end = sdf.format(day.getTime());
 							day.add(Calendar.DATE, -6);
 						%>			
-						<h5>From <%=dt_start%> to <%=dt_end%></h5>
+						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From <%=dt_start%> to <%=dt_end%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 						<br>
 						<div class="arrow" onclick="moveDate('next', '<%=weeksToMove%>')">
 							<span>&#10095;</span>
@@ -139,6 +139,7 @@
 					</div>
 					<div class="col-2"></div>
 				</div>
+				<br><br><br>
 			</div>
 		</div>
 	</div>

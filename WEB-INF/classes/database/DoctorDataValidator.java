@@ -1,8 +1,16 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import model.Doctor;
+
 public class DoctorDataValidator {
 
 
+    /* A method to validate doctor's Name. */
 
 	public boolean isNameeValid(String name) {
 
@@ -10,18 +18,39 @@ public class DoctorDataValidator {
 
 	}
 
+    /* A method to validate doctor's Surname. */
 
 	public boolean isSurnameeValid(String surname) {
 
 		return (surname == null || surname.length() < 3 || surname.length() > 45  ? false : true);
 
 	}
+
+	/* A method to validate doctor's Username. */
+
 	public boolean isUsernameeValid(String username) {
 
 			return (username == null || username.length() < 3 || username.length() > 45  ? false : true);
 
 	}
 
+    /* A method to check if  doctor's Username exists. */
+
+
+	public boolean usernameExists(String username, ArrayList<String> usernames) {
+				boolean exists = false;
+
+				for(int i = 0; i < usernames.size(); i++) {
+					if (username.equals(usernames.get(i))) {
+						exists = true;
+					}
+				}
+
+				return exists;
+			}
+
+
+   	/* A method to validate doctor's Email. */
 
 	public boolean isValidEmail(String email) {
 
@@ -33,6 +62,22 @@ public class DoctorDataValidator {
         return m.matches();
 	}
 
+    /* A method to check if  doctor's Emaiil exists. */
+
+	public boolean emailExists(String email, ArrayList<String> emails) {
+			boolean exists = false;
+
+			for(int i = 0; i < emails.size(); i++) {
+				if (email.equals(emails.get(i))) {
+					exists = true;
+				}
+			}
+
+			return exists;
+		}
+
+
+    /* A method to validate doctor's Phone Number. */
 
 	public boolean isValidPhoneNumber(String phoneNumber) {
 		// Rules:
@@ -45,12 +90,17 @@ public class DoctorDataValidator {
 		return m.matches();
 
 	}
+
+    /* A method to validate doctor's Password. */
+
     public boolean isPassworddValid(String password) {
 
                     return password.matches(
 						"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" );
 		}
 
+
+	/* A method to validate doctor's Address. */
 
      public boolean isValidAddress( String address )
 	  {

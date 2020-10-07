@@ -46,7 +46,7 @@ public class DoctorRegisterService {
 			db.close(); //close connection
 
 		} catch (SQLIntegrityConstraintViolationException  e) {
-			// if am or email already registered
+
 			throw new ApplicationCustomExceptionDatabase("Doctor already exists.");
 
 		} catch (SQLException e) {
@@ -67,76 +67,8 @@ public class DoctorRegisterService {
 	}// End of register
 
 
-	//public List<Student> getStudents(String orderByColumn, String orderByDirection) throws Exception {
 
-		//Connection con = null;
 
-		/*
-		 * Builds the sql query
-		 */
-		//String sql = "SELECT * FROM students_lesson6_2019_2020 "
-				//+ "LEFT JOIN departments_lesson6_2019_2020 "
-				//+ "ON students_lesson6_2019_2020.department_id = departments_lesson6_2019_2020.id ";
-
-		//if (orderByColumn != null && orderByDirection != null) {
-		//	//sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-		//}
-
-		//DB db = new DB();
-		//List<Doctor> doctors =  new ArrayList<Doctor>();
-
-		//try {
-			// open connection and get Connection object
-			//con = db.getConnection();
-
-			//PreparedStatement stmt = con.prepareStatement(sql);
-
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
-			//ResultSet rs = stmt.executeQuery();
-
-			//while (rs.next()) {
-
-				//Specialty sp = new Specialty( rs.getInt("specialties.id"),
-									//rs.getString("specialties.name") );
-
-               // Area ar = new Area( rs.getInt("specialties.id"),
-									//rs.getString("specialties.name") );
-				//Doctor do = new Doctor( rs.getString("students_lesson6_2019_2020.am"),
-									//rs.getString("students_lesson6_2019_2020.name"),
-									//rs.getString("students_lesson6_2019_2020.surname"),
-									//rs.getString("students_lesson6_2019_2020.email"),
-									//rs.getString("students_lesson6_2019_2020.phone"),
-									//dp, rs.getBoolean("students_lesson6_2019_2020.receive_notification") );
-
-				//students.add( st );
-
-			//}
-
- 			//rs.close(); //closing ResultSet
-			//stmt.close(); //closing PreparedStatement
-
-			//return students;
-
-		//} catch (Exception e) {
-
-			//throw new Exception(e.getMessage());
-
-		//} finally {
-
-			//if(con != null) // if connection is still open, then close.
-				//con.close();
-
-		//}
-
-	//} //End of getStudents
-
-	/**
-	 * Update Student's data to database.
-	 *
-	 * @param student, Student
-	 * @throws ApplicationCustomExceptionLesson6: if email is used.
-	 * @throws Exception: if any other error occurred.
-	 */
 	public void updateDoctor(Doctor doctor) throws ApplicationCustomExceptionDatabase, Exception {
 
 
@@ -175,7 +107,7 @@ public class DoctorRegisterService {
 			stmt.close();
 
 		} catch (SQLIntegrityConstraintViolationException  e) {
-			// if am or email already registered
+
 			throw new ApplicationCustomExceptionDatabase("Email is used");
 
 		} catch (Exception e) {

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+.<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.List" %>
 <%@ page errorPage="error.jsp"%>
 
@@ -17,7 +17,7 @@ try {
 	
 	request.setAttribute("message", e.getMessage());
 %>
-	<jsp:forward page="client sign-up-in.jsp"/>	
+	<jsp:forward page="patient-login-register.jsp"/>	
 <%		
 }
 
@@ -25,7 +25,7 @@ response.sendRedirect("index.jsp");
 
 %>	
 <%--
-Used in Lesson5
+
 <jsp:forward page="index.jsp"/>
 --%>
 

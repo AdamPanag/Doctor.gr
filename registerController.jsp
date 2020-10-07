@@ -93,7 +93,17 @@ try {
 		//request.setAttribute( "error-message", "Username is not valid" );
 		//errorPage.forward(request, response);
 		//return;
-	}	
+	}
+
+	//get all patient usernames from database
+	ArrayList<String> usernames = patientDAO.getAllPatientUsernames(username); 
+	
+	//check if usernames exist
+	if(pavalidator.usernameExists(username, usernames)) {
+		errorMessage += "<li>Username exists</li>";
+		countErrors++;
+	}
+
 		
 	//validate password
 	if( !pavalidator.isPasswordValid( password ) ) {
@@ -108,7 +118,7 @@ try {
 		errorMessage = "<ol>" + errorMessage + "</ol>";
 		request.setAttribute( "error-message", errorMessage);
 %>
-		<jsp:forward page="client.jsp"/>	
+		<jsp:forward page="patient-register.jsp"/>	
 <%		
 	}	
 	
@@ -120,7 +130,7 @@ try {
 	// save patient to the database;
 	patientRegisterService.register(patient);	
 
-	//add student object to request via an attribute
+	//add patient object to request via an attribute
 	request.setAttribute("patientObj", patient);
 	
 %>
@@ -133,7 +143,7 @@ try {
 		
 request.setAttribute( "error-message", e.getMessage());
 %>
-	<jsp:forward page="client.jsp"/>	
+	<jsp:forward page="patient-register.jsp"/>	
 <%
 	
 }  catch(Exception e) { 
