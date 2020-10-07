@@ -62,20 +62,21 @@
 					<div class="row">
 						<div class="arrow" onclick="moveDate('prev', '<%=daysToMove%>')">
 							<span>&#10094;</span>
-						</div>		
+						</div>
 						<%	day.add(Calendar.DATE, daysToMove);
 							dt_this = sdf.format(day.getTime());
 							
 							if (daysToMove == 0) {
 						%>			
-						<h5>Today, <%=dt_this%></h5>
+						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today, <%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 							<%} else {%>
-						<h5><%=dt_this%></h5>
+						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 							<%}%>
 						<br>
 						<div class="arrow" onclick="moveDate('next', '<%=daysToMove%>')">
 							<span>&#10095;</span>
 						</div>
+
 					</div>
 			</div>
 	
