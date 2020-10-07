@@ -126,9 +126,9 @@
 
 					<div class="form-group">
 						<div class="col-sm-10 col-sm-offset-2">
-							<a href="/ismgroup96/patient-profile.jsp" class="btn btn-default">Back</a>
-							<button type="submit" class="btn btn-success">Save changes</button>
-							<button type="reset" class="btn btn-default">Undo changes</button>
+							<a href="/ismgroup96/patient-profile.jsp" class="btn btn-default" style="border: 1px solid #e3f2fd;">Back</a>
+							<button type="submit" class="btn btn-success" style="background-color: #e3f2fd; border: none; color: black;">Save changes</button>
+							<button type="reset" class="btn btn-default" style="border: 1px solid #e3f2fd;">Undo changes</button>
 						</div>
 					</div>
 

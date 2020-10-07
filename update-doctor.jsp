@@ -62,6 +62,16 @@
 			countErrorss++;
 		}
 
+		//get all doctor usernames from database
+		ArrayList<String> usernames = doctorDAO.getAllDoctorUsernames(username); 
+	
+		//check if usernames exist
+		if(dovalidator.usernameExists(username, usernames)) {
+			errorMessagee += "<li>Username exists</li>";
+			countErrorss++;
+		}
+
+
 		//validate password
 		if( !dovalidator.isPassworddValid( password ) ) {
 			errorMessagee += "<li>Password should have at least 8 characters including a lowercase letter, an uppercase letter and a number</li>";
@@ -77,6 +87,15 @@
 		//validate email
 		if( !dovalidator.isValidEmail( email ) ) {
 			errorMessagee += "<li>Email is not valid</li>";
+			countErrorss++;
+		}
+
+		//get all doctor emails from database
+		ArrayList<String> emails = doctorDAO.getAllDoctorEmails(email); 
+
+		//check if emails exists
+		if(dovalidator.emailExists(email, emails)) {
+			errorMessagee += "<li>Email exists</li>";
 			countErrorss++;
 		}
 	
