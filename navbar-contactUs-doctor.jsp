@@ -16,13 +16,13 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="index.jsp">Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">About us</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contactUs.jsp">Contact us</a>
+						<li class="nav-item active">
+							<a class="nav-link" href="contactUs.jsp">Contact us<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=doctor.getFullName()%></a>

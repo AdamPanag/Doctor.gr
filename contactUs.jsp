@@ -11,8 +11,9 @@
 	<title>Contact Us</title>
 	
 	<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
     <!-- Custom styles for this template -->
 	<link rel="stylesheet" type="text/css" href="css/contactUs.css">
 </head>
@@ -21,13 +22,12 @@
 
 	<!-- Navigation Bar-->
 	<%	if(doctor != null) {	%>
-		<%@ include file="navbar-homepage-doctor.jsp" %>
+		<%@ include file="navbar-contactUs-doctor.jsp" %>
 	<%	} else if (patient != null){	%>
-		<%@ include file="navbar-homepage-patient.jsp" %>
+		<%@ include file="navbar-contactUs-patient.jsp" %>
 	<%  } else {	%>
-		<%@ include file="navbar-homepage-default.jsp" %>
+		<%@ include file="navbar-contactUs-default.jsp" %>
 	<%	}	%>
-	
 	
 <div class="page-content">
 	<div class="bg-contact2" style="background-image: url('images/homepage_image.jpg');">

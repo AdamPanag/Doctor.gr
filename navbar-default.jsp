@@ -27,8 +27,8 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Register</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="client sign-up-in.jsp">Patient</a>
-								<a class="dropdown-item" href="doctor sign-up-in.jsp">Doctor</a>
+								<a class="dropdown-item" href="patient-login-register.jsp">Patient</a>
+								<a class="dropdown-item" href="doctor-login-register.jsp">Doctor</a>
 							</div>
 						</li>			
 					</ul>
