@@ -10,13 +10,13 @@ import model.Patient;
 public class PatientService {
 
 	/**
-	 * This method is used to authenticate a user.
+	 * This method is used to authenticate a patient.
 	 *
 	 * @param username,
 	 *            String
 	 * @param password,
 	 *            String
-	 * @return User, the User object
+	 * @return Patient, the Patient object
 	 * @throws Exception,
 	 *             if the credentials are not valid
 	 */
@@ -51,16 +51,16 @@ public class PatientService {
 				throw new Exception("Wrong username or password");
 
 			}
-			
-			
+
+
 			patient = new Patient(rs.getInt("id"), rs.getString("name"), rs.getString("surname"),rs.getString("username"), rs.getString("password"),
 					rs.getString("ssn"), rs.getString("email"));
-			
+
 			rs.close();
 			stmt.close();
 			db.close();
 
-			return patient; // return the user
+			return patient; // return the patient
 
 		} catch (Exception e) {
 

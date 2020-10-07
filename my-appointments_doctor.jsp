@@ -85,7 +85,8 @@
 					<div class="col-8">
 						<div class="container">
 							<%	boolean flag = true;	
-							if(bookings.size() == 0) {%>
+							if(bookings.size() == 0) {
+								flag = false; %>
 								<h4 id="not-found">You do not have any appointments yet!</h4>
 							<% } else {
 								for(Booking booking: bookings) {
