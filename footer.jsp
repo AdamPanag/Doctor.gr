@@ -27,17 +27,19 @@
 					<h2>Quick Links</h2>
 					<br>
 					<ul>
-						<a href="#"><li>About us</li></a>
-						<a href="#"><li>Contact us</li></a>
+						<a href="aboutUs.jsp"><li>About us</li></a>
+						<a href="contactUs.jsp"><li>Contact us</li></a>
 						<a href="#"><li>Terms of Service</li></a>
 					</ul>
 				</div>
 				<div class="footer-section social">
 					<h2>Follow us on</h2>
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-instagram"></i>
-					<i class="fab fa-twitter"></i>
-					<i class="fab fa-youtube"></i>
+					<div class="icons">
+						<i class="fab fa-facebook fa-2x icon"></i>
+						<i class="fab fa-instagram fa-2x icon"></i>
+						<i class="fab fa-twitter fa-2x icon"></i>
+						<i class="fab fa-youtube fa-2x icon"></i>
+					</div>
 				</div>
 
 				<div class="footer-bottom">

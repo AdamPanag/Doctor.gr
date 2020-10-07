@@ -51,11 +51,11 @@ public class PatientService {
 				throw new Exception("Wrong username or password");
 
 			}
-			
-			
+
+
 			patient = new Patient(rs.getInt("id"), rs.getString("name"), rs.getString("surname"),rs.getString("username"), rs.getString("password"),
 					rs.getString("ssn"), rs.getString("email"));
-			
+
 			rs.close();
 			stmt.close();
 			db.close();

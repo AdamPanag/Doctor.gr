@@ -49,8 +49,7 @@
 		<div class="search-form">
 			<form action="search-result.jsp" method="POST">
 				<div class="form-content">
-					<div class="col-lg-2 col-12"></div>
-					<div class="col-lg-4">
+					<div>
 						<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
 						<datalist id="specialties">
 		<% 	for(Specialty speciaclty: specialties) { %>
@@ -58,7 +57,7 @@
 		<% 	} %>
 						</datalist>
 					</div>
-					<div class="col-lg-3 col-12">
+					<div>
 						<input list="areas" name="area" class="search-input" placeholder="Where?">
 						<datalist id="areas">
 		<% 	for(Area area: areas) { %>
@@ -66,10 +65,10 @@
 		<% } %>
 						</datalist>
 					</div>
-					<div class="col-lg-1 col-12">
+					<div>
 						<input type="submit" id="submit" class="fsSubmitButton" value="Search">
 					</div>
-					<div class="col-lg-2"></div>
+					
 				</div>
 			</form>
 		</div>

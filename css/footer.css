@@ -32,9 +32,20 @@
 	padding: 20px;
 }
 
-.footer .footer-content .footer-section .social{
+.footer .footer-content .social{
 	display: flex;
+	flex-direction: column;
 }
 
+.footer .footer-content .social .icons {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.footer .footer-content .social .icon {
+	margin-top: 10px;
+	margin-left: 15px;
+	cursor: pointer;
+}
 
 
