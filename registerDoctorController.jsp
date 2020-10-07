@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ page import="database.*, model.*, java.util.List" %>
+<%@ page import="database.*, model.*, java.util.*" %>
 
 <%@ page errorPage="error.jsp"%>
 
@@ -23,7 +23,7 @@ DoctorRegisterService doctorRegisterService = new DoctorRegisterService();
 
 
 DoctorDataValidator dovalidator = new DoctorDataValidator();
-
+DoctorDAO doctorDAO= new DoctorDAO();
 
 int countErrorss = 0;
 String errorMessagee = "";
@@ -68,8 +68,17 @@ try {
 		//errorPage.forward(request, response);
 		//return;
 	}
-
 	
+	//get all doctor emails from database
+	ArrayList<String> emails = doctorDAO.getAllDoctorEmails(email); 
+	
+	//check if emails exists
+	if(dovalidator.emailExists(email, emails)) {
+		errorMessagee += "<li>Email exists</li>";
+		countErrorss++;
+	}
+
+	//validate address
 	if( !dovalidator.isValidAddress( address ) ) {
 		errorMessagee += "<li> Address is not valid </li>";
 		countErrorss++;
@@ -91,9 +100,18 @@ try {
 		//request.setAttribute( "error-message", "Username is not valid" );
 		//errorPage.forward(request, response);
 		//return;
-	}	
-		
-		
+	}
+	
+	//get all doctor usernames from database
+	ArrayList<String> usernames = doctorDAO.getAllDoctorUsernames(username); 
+	
+	//check if usernames exist
+	if(dovalidator.usernameExists(username, usernames)) {
+		errorMessagee += "<li>Username exists</li>";
+		countErrorss++;
+	}
+
+	
 	
 	//validate password
 	if( !dovalidator.isPassworddValid( password ) ) {
@@ -118,7 +136,7 @@ try {
 		errorMessagee = "<ol>" + errorMessagee + "</ol>";
 		request.setAttribute( "error-message", errorMessagee);
 %>
-		<jsp:forward page="doctor.jsp"/>	
+		<jsp:forward page="doctor-register.jsp"/>	
 <%		
 	}	
 	
@@ -141,7 +159,7 @@ try {
 	
 request.setAttribute( "error-message", e.getMessage());
 %>
-	<jsp:forward page="doctor.jsp"/>	
+	<jsp:forward page="doctor-register.jsp"/>	
 <%
 	
 }  catch(Exception e) { 
