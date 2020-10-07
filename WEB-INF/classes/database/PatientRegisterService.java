@@ -11,7 +11,9 @@ import java.util.List;
 import model.User;
 import model.Patient;
 
+
 public class PatientRegisterService {
+
 
 	public void register(Patient patient) throws ApplicationCustomExceptionDatabase, Exception {
 
@@ -43,7 +45,7 @@ public class PatientRegisterService {
 			db.close(); //close connection
 
 		} catch (SQLIntegrityConstraintViolationException  e) {
-			// if am or email already registered
+
 			throw new ApplicationCustomExceptionDatabase("Patient already exists.");
 
 		} catch (SQLException e) {
@@ -62,6 +64,7 @@ public class PatientRegisterService {
 		}
 
 	}// End of register
+
 
 	public void updatePatient(Patient patient) throws ApplicationCustomExceptionDatabase, Exception {
 
@@ -98,7 +101,7 @@ public class PatientRegisterService {
 					stmt.close();
 
 				}  catch (SQLIntegrityConstraintViolationException  e) {
-			// if am or email already registered
+
 			throw new ApplicationCustomExceptionDatabase("Email is used");
 
 

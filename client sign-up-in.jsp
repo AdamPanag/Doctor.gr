@@ -4,9 +4,6 @@
 
 
 
-
-
-
 <!DOCTYPE html>
 
 
@@ -69,7 +66,7 @@
   <div class="centered">
 	<h2>New here?</h2>
     <p>Sign up now!!</p>
-	<a href="client.jsp"><button>Sign up</button></a>
+	<a href="client.jsp"><button style="background-color: #E6E6FA; color:black"> SIGN UP</button> </a>
     
   </div>
 </div>

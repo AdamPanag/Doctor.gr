@@ -27,8 +27,11 @@ if(request.getAttribute("doctorObj") != null) {
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	
+	<link rel="stylesheet" href="css/register-done.css">
+
 	<title>Registration done</title>
+	
+	<meta http-equiv="refresh" content="1;url=<%=request.getContextPath() %>/index.jsp" />
 	</head>
 
 	<body>
@@ -36,7 +39,6 @@ if(request.getAttribute("doctorObj") != null) {
 
 		<div class="container">
 
-			<!-- Page Title -->
 			<div class="page-header">
 				<h1>Registration done</h1>				
 				
@@ -46,16 +48,15 @@ if(request.getAttribute("doctorObj") != null) {
 				<div class="col-xs-12 col-md-10 col-lg-8">
 
 					<h2>Your registration completed successfully</h2>
-					<div class="alert alert-success">
-						<b>Doctor Details:</b> <%=doctor %>					
-					</div>
+					<h3>You can now login!!</h3>
+
 				</div>
 
 			</div>
 			
 			
 		</div>
-		<!-- /container -->
+		
 
 		
 		

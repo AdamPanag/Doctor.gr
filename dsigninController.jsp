@@ -25,6 +25,6 @@ response.sendRedirect("my-appointments_doctor.jsp");
 
 %>	
 <%--
-Used in Lesson5
+
 <jsp:forward page="index.jsp"/>
---%>
+--%> 

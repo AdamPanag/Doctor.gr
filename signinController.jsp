@@ -25,7 +25,7 @@ response.sendRedirect("index.jsp");
 
 %>	
 <%--
-Used in Lesson5
+
 <jsp:forward page="index.jsp"/>
 --%>
 
