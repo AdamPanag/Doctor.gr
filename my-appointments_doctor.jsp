@@ -105,7 +105,9 @@
 											<div class="col-4">
 												<h5><%=booking.getDate()%></h5>
 												<h5><%=booking.getHour()%></h5>
-												<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+												<%if (daysToMove >= 0) {%>
+													<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+												<%}%>
 											</div>
 										</div>
 							<%		}
