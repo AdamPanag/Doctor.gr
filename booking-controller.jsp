@@ -20,7 +20,7 @@
 		bookingDAO.bookAnAppointment(booking);
 
 		DoctorDAO doctorDAO = new DoctorDAO();
-		Doctor doctor = doctorDAO.getDoctorById(doctorId);
+		Doctor doctor = doctorDAO.getDoctorInfo(doctorId);
 
 %>
 

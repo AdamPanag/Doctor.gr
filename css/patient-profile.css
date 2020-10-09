@@ -16,7 +16,7 @@ p {
 .card {
 	display: flex;
 	top: 70px;
-  	margin-bottom: 20px;
+  margin-bottom: 20px;
 	left: 25%;
 	float: center;
 	width: 100%;
@@ -31,10 +31,15 @@ p {
 	bottom: 10px;
 }
 
+.card .card-title {
+  font-size: 18px;
+}
+
 .card .card-description {
     margin-bottom: 1rem;
     font-weight: 400;
     color: #76838f;
+    font-size: 18px;
 }
 
 ul.about {
@@ -45,7 +50,7 @@ ul.about {
 
 li.about-items {
     margin: 10px;
-    font-size: 1rem;
+    font-size: 18px;
 }
 
 li.about-items i {
@@ -60,6 +65,10 @@ span.about-item-name {
 
 a.about-item-edit {
     float: right;
+}
+
+.card .card-tittle {
+  font-size: 18px;
 }
 
 .wrapper {

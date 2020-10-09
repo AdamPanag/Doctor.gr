@@ -9,7 +9,7 @@
 	patient = (Patient) session.getAttribute("patient-database-obj");
     DoctorDAO doctorDAO = new DoctorDAO();
     int doctorId = Integer.parseInt(request.getParameter("doctorId"));
-    Doctor doctor = doctorDAO.getDoctorById(doctorId);
+    Doctor doctor = doctorDAO.getDoctorInfo(doctorId);
     
     int weeksToMove = 0;
     if(request.getParameter("weeksToMove") != null) {
@@ -132,26 +132,7 @@
 	<%@ include file="footer.jsp"%>
 
 
-	<script>
-		function confirmBooking(doctorId, dt, timeSlot) {
-		  var r = confirm("Are you sure that you want to book an appointment at " + timeSlot + " on the " + dt + "?");
-		  if(r == true) {
-		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/booking-controller.jsp?doctorId=" + doctorId +
-		  	"&date=" + dt + "&hour=" + timeSlot;
-		  }
-		}
-
-		function moveDate(para , weeksToMove) {
-			if(para == "prev") {
-				weeksToMove--;
-				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
-			} else if(para == 'next') {
-				weeksToMove++;
-				window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
-			}
-		}
-
-	</script>
+	<script src="js/bookNow.js" type="text/javascript"></script>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

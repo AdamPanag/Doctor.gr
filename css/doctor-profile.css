@@ -31,6 +31,7 @@ html,body {
 	height: 150px;
 	width: 95%;
 	position: relative;
+	font-size: 20px;
 }
 
 .user-image {
@@ -56,14 +57,14 @@ html,body {
 }
 
 .profile-card .profile-name {
-	font-size: 1.3rem;
+	font-size: 20px;
 	color: #00000;
 	font-weight: 600;
 	text-align: center;
 }
 
 .profile-card .profile-designation {
-	font-size: 15px;
+	font-size: 17px;
 	color: #777;
 	text-align: center;
 }
@@ -72,7 +73,7 @@ html,body {
 	padding: 0;
 	margin: 10px 0;
 	list-style: none;
-	font-size: 1rem;
+	font-size: 17px;
 	font-weight: 500;
 	color: #777;
 }
@@ -92,6 +93,14 @@ html,body {
 	background-color: #F1F2F3;
 }
 
+.card-body .card-title {
+	font-size: 18px;
+}
+
+.card-body .card-description {
+	font-size: 18px;
+}
+
 ul.about {
     list-style: none;
     color: black;
@@ -100,7 +109,7 @@ ul.about {
 
 li.about-items {
     margin: 10px;
-    font-size: 1rem;
+    font-size: 18px;
 }
 
 li.about-items i {
@@ -110,7 +119,7 @@ color: #607d8b;
 span.about-item-name {
     width: 100px;
     display: inline-flex;
-	    margin-left: 10px;
+	margin-left: 10px;
 }
 
 a.about-item-edit {
