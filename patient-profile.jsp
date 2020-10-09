@@ -148,7 +148,7 @@
 		function cancelBooking(bookingId) {
 		  var r = confirm("Are you sure that you want to cancel this appointment?");
 		  if(r == true) {
-		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancelation-controller.jsp?id=" + bookingId;
+		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancellation-controller.jsp?id=" + bookingId;
 		  }
 		}
 	</script>
