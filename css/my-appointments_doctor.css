@@ -31,6 +31,10 @@ p {
   bottom: 10px;
 }
 
+.card .card-tittle {
+  font-size: 18px;
+}
+
 .card .card-description {
     margin-bottom: 1rem;
     font-weight: 400;

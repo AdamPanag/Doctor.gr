@@ -75,50 +75,6 @@ public class DoctorDAO {
 
 	}
 
-	public Doctor getDoctorById(int id) throws Exception {
-		Doctor doctor = new Doctor();
-
-		DB db = new DB();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-
-		String sqlQuery = "SELECT * "
-						+ "FROM doctors "
-						+ "WHERE id = '" + id + "';";
-
-		try {
-			con = db.getConnection(); //get Connection
-			stmt = con.prepareStatement(sqlQuery);
-			rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				doctor = new Doctor(rs.getInt("id"), rs.getString("name"),
-						rs.getString("surname"), rs.getString("username"), rs.getString("password"),
-						rs.getString("specialty"), rs.getString("phoneNumber"), rs.getString("email"),
-						rs.getString("address"), rs.getString("area"));
-			}
-
-
-			rs.close();
-			stmt.close();
-			db.close();
-
-			return doctor;
-
-		} catch (Exception e) {
-
-			throw new Exception("An error occured while getting doctors from database: "
-								+ e.getMessage());
-
-		} finally {
-
-			if(con != null)
-				con.close();
-		}
-
-	}
-
 	public Doctor getDoctorInfo(int id) throws Exception {
 			Doctor doctor = new Doctor();
 

@@ -9,7 +9,7 @@
 	patient = (Patient) session.getAttribute("patient-database-obj");
     DoctorDAO doctorDAO = new DoctorDAO();
     int doctorId = Integer.parseInt(request.getParameter("doctorId"));
-    Doctor doctor = doctorDAO.getDoctorById(doctorId);
+    Doctor doctor = doctorDAO.getDoctorInfo(doctorId);
     
     int weeksToMove = 0;
     if(request.getParameter("weeksToMove") != null) {

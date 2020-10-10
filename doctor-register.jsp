@@ -17,6 +17,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="css/doctor-patient.css">
+  
 
 </head>
 
@@ -25,7 +26,8 @@
 
 <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
+	
+    <hr style="width:109%;text-align:left;margin-left:0">
 	<% if(request.getAttribute("error-message") != null) { %>
 		
 			<div class="alert alert-danger">
@@ -38,7 +40,7 @@
 		
 	    <div class="col-xs-12">
 			
-				<form class="form-horizontal" method="POST" action="registerDoctorController.jsp">
+				<form  class="form-horizontal" method="POST" action="registerDoctorController.jsp">
 				  
 				  <div class="form-group">
 						<label for="name" class="col-sm-2 control-label">Name</label>
@@ -132,8 +134,8 @@
 	              <script src = "js/confirm.js"></script>
                    <div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-						  <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
-						  <button type="reset" style="background-color:red;" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+						  <button type="submit" style="width: 110%;" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" style="background-color:red; width: 110%" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 						</div>
 					  </div>
 				</form>

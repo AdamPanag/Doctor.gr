@@ -105,7 +105,9 @@
 											<div class="col-4">
 												<h5><%=booking.getDate()%></h5>
 												<h5><%=booking.getHour()%></h5>
-												<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+												<%if (daysToMove >= 0) {%>
+													<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+												<%}%>
 											</div>
 										</div>
 							<%		}
@@ -128,7 +130,7 @@
 		function cancelBooking(bookingId) {
 		  var r = confirm("Are you sure that you want to cancel this appointment?");
 		  if(r == true) {
-		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancelation-controller.jsp?id=" + bookingId;
+		  	window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/cancellation-controller.jsp?id=" + bookingId;
 		  }
 		}
 	</script>
