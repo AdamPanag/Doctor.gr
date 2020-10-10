@@ -45,6 +45,7 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/my-appointments_doctor.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 
 </head>
 
@@ -54,77 +55,81 @@
 	<%@ include file="navbar-doctor-appointments.jsp" %>
 
 		<!-- Page Content -->
-	<div class="col-md-8 grid-margin stretch-card">
-		<div class="card">
-			<div class="card-body">
-				<p class="card-tittle font-weight-bold">My Appointments</p>
-				<hr>
-					<div class="row">
-						<div class="arrow" onclick="moveDate('prev', '<%=daysToMove%>')">
-							<span>&#10094;</span>
-						</div>
-						<%	day.add(Calendar.DATE, daysToMove);
-							dt_this = sdf.format(day.getTime());
-							
-							if (daysToMove == 0) {
-						%>			
-						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today, <%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-							<%} else {%>
-						<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-							<%}%>
-						<br>
-						<div class="arrow" onclick="moveDate('next', '<%=daysToMove%>')">
-							<span>&#10095;</span>
-						</div>
+	<div class="page-content">
+		<div class="col-md-8 grid-margin stretch-card">
+			<div class="card">
+				<div class="card-body">
+					<p class="card-tittle font-weight-bold">My Appointments</p>
+					<hr>
+						<div class="row">
+							<div class="arrow" onclick="moveDate('prev', '<%=daysToMove%>')">
+								<span>&#10094;</span>
+							</div>
+							<%	day.add(Calendar.DATE, daysToMove);
+								dt_this = sdf.format(day.getTime());
+								
+								if (daysToMove == 0) {
+							%>			
+							<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today, <%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+								<%} else {%>
+							<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=dt_this%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+								<%}%>
+							<br>
+							<div class="arrow" onclick="moveDate('next', '<%=daysToMove%>')">
+								<span>&#10095;</span>
+							</div>
 
-					</div>
-			</div>
-	
-			<div class="container" id="appointments-list">
-				<div class="row appointment">
-					<div class="col-2"></div>
-					<div class="col-8">
-						<div class="container">
-							<%	boolean flag = true;	
-							if(bookings.size() == 0) {
-								flag = false; %>
-								<h4 id="not-found">You do not have any appointments yet!</h4>
-							<% } else {
-								for(Booking booking: bookings) {
-									Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
-									Date this_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt_this);
-									if (booking_date.compareTo(this_date) == 0) { 
-										flag = false; %>
-										<div class="row mini-profil">
-											<div class="col-5">
-												<%Patient patient = patientDAO.getPatientInfo(booking.getPatientId());%>
-												<h5><%=patient.getFullName()%></h5>
-												<p><%=patient.getSsn()%></p>
-												<p><%=patient.getEmail()%></p>
-											</div>
-											<div class="col-4">
-												<h5><%=booking.getDate()%></h5>
-												<h5><%=booking.getHour()%></h5>
-												<%if (daysToMove >= 0) {%>
-													<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
-												<%}%>
-											</div>
-										</div>
-							<%		}
-								}
-							} 
-							%>
-							<% if (flag == true) {%>
-								<h4 id="no-upcoming">Νο appointments on <%=dt_this%>!</h4>
-							<%  } %>
 						</div>
-					</div>
-					<div class="col-2"></div>
 				</div>
-				<br><br><br>
+		
+				<div class="container" id="appointments-list">
+					<div class="row appointment">
+						<div class="col-2"></div>
+						<div class="col-8">
+							<div class="container">
+								<%	boolean flag = true;	
+								if(bookings.size() == 0) {
+									flag = false; %>
+									<h4 id="not-found">You do not have any appointments yet!</h4>
+								<% } else {
+									for(Booking booking: bookings) {
+										Date booking_date = new SimpleDateFormat("dd-MM-yyyy").parse(booking.getDate());
+										Date this_date = new SimpleDateFormat("dd-MM-yyyy").parse(dt_this);
+										if (booking_date.compareTo(this_date) == 0) { 
+											flag = false; %>
+											<div class="row mini-profil">
+												<div class="col-5">
+													<%Patient patient = patientDAO.getPatientInfo(booking.getPatientId());%>
+													<h5><%=patient.getFullName()%></h5>
+													<p><%=patient.getSsn()%></p>
+													<p><%=patient.getEmail()%></p>
+												</div>
+												<div class="col-4">
+													<h5><%=booking.getDate()%></h5>
+													<h5><%=booking.getHour()%></h5>
+													<%if (daysToMove >= 0) {%>
+														<span onclick="cancelBooking(<%=booking.getId()%>)" class="time">Cancel <i class="material-icons" style="vertical-align: -6px;">delete</i></span>
+													<%}%>
+												</div>
+											</div>
+								<%		}
+									}
+								} 
+								%>
+								<% if (flag == true) {%>
+									<h4 id="no-upcoming">Νο appointments on <%=dt_this%>!</h4>
+								<%  } %>
+							</div>
+						</div>
+						<div class="col-2"></div>
+					</div>
+					<br><br><br>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<%@ include file="footer.jsp"%>
 	
 	<script>
 		function cancelBooking(bookingId) {
