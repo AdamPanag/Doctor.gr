@@ -50,9 +50,8 @@ public class PatientDataValidator {
         return m.matches();
 	}
 
-
     /* A method to check if  patient's Emaiil exists. */
-
+	
 	public boolean emailExists(String email, ArrayList<String> emails) {
 		boolean exists = false;
 
@@ -67,8 +66,7 @@ public class PatientDataValidator {
 
 
 	/* A method to validate patient's Username. */
-
-
+	
 	public boolean isUsernameValid(String username) {
 
 			return ( username == null || username.length() < 3 || username.length() > 45 ? false : true);
