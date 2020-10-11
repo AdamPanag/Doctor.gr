@@ -61,7 +61,7 @@
 		ArrayList<String> usernames = patientDAO.getAllPatientUsernames(username); 
 	
 		//check if usernames exist
-		if(pavalidator.usernameExists(username, usernames)) {
+		if(pavalidator.usernameExistsMoreThanOnce(username, usernames)) {
 			errorMessage += "<li>Username exists</li>";
 			countErrors++;
 		}
@@ -88,7 +88,7 @@
 		ArrayList<String> emails = patientDAO.getAllPatientEmails(email); 
 	
 		//check if emails exists
-		if(pavalidator.emailExists(email, emails)) {
+		if(pavalidator.emailExistsMoreThanOnce(email, emails)) {
 			errorMessage += "<li>Email exists</li>";
 			countErrors++;
 		}

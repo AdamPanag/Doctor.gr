@@ -50,8 +50,9 @@ public class PatientDataValidator {
         return m.matches();
 	}
 
+
     /* A method to check if  patient's Emaiil exists. */
-	
+
 	public boolean emailExists(String email, ArrayList<String> emails) {
 		boolean exists = false;
 
@@ -64,9 +65,27 @@ public class PatientDataValidator {
 		return exists;
 	}
 
+	public boolean emailExistsMoreThanOnce(String email, ArrayList<String> emails) {
+				boolean existsMoreThanOnce = false;
+				int counter = 0;
+
+				for(int i = 0; i < emails.size(); i++) {
+					if (email.equals(emails.get(i))) {
+						counter++;
+					}
+				}
+
+				if (counter > 1) {
+					existsMoreThanOnce = true;
+				}
+
+				return existsMoreThanOnce;
+	}
+
 
 	/* A method to validate patient's Username. */
-	
+
+
 	public boolean isUsernameValid(String username) {
 
 			return ( username == null || username.length() < 3 || username.length() > 45 ? false : true);
@@ -85,6 +104,23 @@ public class PatientDataValidator {
 			}
 
 			return exists;
+	}
+
+	public boolean usernameExistsMoreThanOnce(String username, ArrayList<String> usernames) {
+			boolean existsMoreThanOnce = false;
+			int counter = 0;
+
+			for(int i = 0; i < usernames.size(); i++) {
+				if (username.equals(usernames.get(i))) {
+					counter++;
+				}
+			}
+
+			if (counter > 1) {
+				existsMoreThanOnce = true;
+			}
+
+			return existsMoreThanOnce;
 	}
 
    	/* A method to validate patient's Password. */

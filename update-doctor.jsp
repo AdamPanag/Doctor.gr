@@ -66,7 +66,7 @@
 		ArrayList<String> usernames = doctorDAO.getAllDoctorUsernames(username); 
 	
 		//check if usernames exist
-		if(dovalidator.usernameExists(username, usernames)) {
+		if(dovalidator.usernameExistsMoreThanOnce(username, usernames)) {
 			errorMessagee += "<li>Username exists</li>";
 			countErrorss++;
 		}
@@ -94,7 +94,7 @@
 		ArrayList<String> emails = doctorDAO.getAllDoctorEmails(email); 
 
 		//check if emails exists
-		if(dovalidator.emailExists(email, emails)) {
+		if(dovalidator.emailExistsMoreThanOnce(email, emails)) {
 			errorMessagee += "<li>Email exists</li>";
 			countErrorss++;
 		}

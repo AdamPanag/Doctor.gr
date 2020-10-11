@@ -93,6 +93,10 @@ html,body {
 	background-color: #F1F2F3;
 }
 
+.card {
+	margin-bottom: 100px;
+}
+
 .card-body .card-title {
 	font-size: 18px;
 }
