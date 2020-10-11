@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="database.*, model.*, java.util.List" %>
 
+<%-- restrict page access --%>
+<%@ include file="patientAuthenticationGuard.jsp"%>
+
 <%
 	String doctorFullName = request.getParameter("doctor_full_name");
 	String date = request.getParameter("date");
