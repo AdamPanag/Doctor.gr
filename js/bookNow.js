@@ -6,15 +6,15 @@ function confirmBooking(doctorId, dt, timeSlot) {
   	}
 }
 
-function moveDate(para , weeksToMove) {
+function moveDate(para, doctorId, weeksToMove) {
 	if(para == "prev") {
 		weeksToMove--;
 		if(weeksToMove < 0) {
 			weeksToMove = 0;
 		}
-		window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
+		window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=" + doctorId + "&weeksToMove=" + weeksToMove;
 	} else if(para == 'next') {
 		weeksToMove++;
-		window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=1&weeksToMove=" + weeksToMove;
+		window.location.href = "http://ism.dmst.aueb.gr/ismgroup96/book-now.jsp?doctorId=" + doctorId + "&weeksToMove=" + weeksToMove;
 	}
 }

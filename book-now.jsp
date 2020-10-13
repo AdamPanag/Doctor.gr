@@ -63,7 +63,7 @@
 					<div class="doctor-schedule" >
 						<h3>Select day</h3>
 						<div class="row">
-							<div class="arrow" onclick="moveDate('prev', '<%=weeksToMove%>')">
+							<div class="arrow" onclick="moveDate('prev','<%=doctorId%>', '<%=weeksToMove%>')">
 								<span>&#10094;</span>
 							</div>
 						<!-- Week -->
@@ -119,7 +119,7 @@
 					<%		day.add(Calendar.DATE, -i);
 						}	
 					%>	
-								<div class="arrow" onclick="moveDate('next', '<%=weeksToMove%>')">
+								<div class="arrow" onclick="moveDate('next','<%=doctorId%>', '<%=weeksToMove%>')">
 									<span>&#10095;</span>
 								</div>
 						</div>
