@@ -42,37 +42,34 @@
 
 <!-- Page Content -->
 <div class="page-content">
-	<header class="home-header">
-		<div class="main-slogan">
-			<h1>Find your doctor and book an appointment!</h1>
-		</div>
-		<div class="search-form">
-			<form action="search-result.jsp" method="POST">
-				<div class="form-content">
-					<div>
-						<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
-						<datalist id="specialties">
-		<% 	for(Specialty speciaclty: specialties) { %>
-							<option value="<%=speciaclty.getName() %>">			
-		<% 	} %>
-						</datalist>
-					</div>
-					<div>
-						<input list="areas" name="area" class="search-input" placeholder="Where?">
-						<datalist id="areas">
-		<% 	for(Area area: areas) { %>
+	<div class="page-area">
+		<div class="page-area-content">
+			<div class="main-slogan">
+				<h1>Find your doctor and book an appointment!</h1>
+			</div>
+			<div class="search-form">
+				<form action="search-result.jsp" method="POST">
+						
+					<input list="specialties" name="specialty" class="search-input" placeholder="Doctor's specialty">
+					<datalist id="specialties">
+						<% 	for(Specialty speciaclty: specialties) { %>
+								<option value="<%=speciaclty.getName() %>">			
+						<% 	} %>
+					</datalist>
+						
+						
+					<input list="areas" name="area" class="search-input" placeholder="Where?">
+					<datalist id="areas">
+						<% 	for(Area area: areas) { %>
 							<option value="<%=area.getName() %>">
-		<% } %>
-						</datalist>
-					</div>
-					<div>
-						<input type="submit" id="submit" class="fsSubmitButton" value="Search">
-					</div>
+						<% } %>
+					</datalist>
 					
-				</div>
-			</form>
+					<input type="submit" id="submit" class="fsSubmitButton" value="Search">
+				</form>
+			</div>
 		</div>
-	</header>
+	</div>
 </div>
 
 <%@ include file="footer.jsp"%>
