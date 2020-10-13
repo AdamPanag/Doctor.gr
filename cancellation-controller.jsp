@@ -2,7 +2,7 @@
 <%@ page import="database.*, model.*, java.lang.Integer" %>
 
 <%
-	if(session.getAttribute("doctor-database-obj") == null && session.getAttribute("patient-database-obj") == null) {
+	if((session.getAttribute("doctor-database-obj") == null && session.getAttribute("patient-database-obj") == null) || (request.getParameter("id") == null)) {
 		request.setAttribute("message", "You are not authorized to access this resource. Please login.");
 %>
 	<jsp:forward page="index.jsp" />
