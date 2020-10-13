@@ -50,12 +50,5 @@ CREATE TABLE `bookings` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `specialties` VALUES (1,'Pathologist'),(2,'Pediatrician'),(3,'Urologist');
-INSERT INTO `areas` VALUES (1,'Chalandri'),(2,'Kifisia'),(3,'Ekali');
-
-INSERT INTO `doctors` VALUES (1,'Kostas','Mitropoulos','kostmitrop','1234','Urologist','+30 6998665969','kost@gmail.com','Kifisia 35, Athens, Greece','Kifisia');
-INSERT INTO `doctors` VALUES (29,'Katerina','Kat','kate','Katerina1','Urologist','+30 6998665969','kat@gmail.com','12 Irakleiou','Kifisia');
-INSERT INTO `doctors` VALUES (35,'Katerina','Kat','kate','Katerina2','Urologist','+30 6998665969','kate@gmail.com','12 Irakleiou','Kifisia');
-INSERT INTO `doctors` VALUES (2,'Kostas','Mitropoulos','kostmitrop','kostas','Urologist','+30 6998665969','kost@gmail.com','Kifisia 35, Athens, Greece','Kifisia');
-
-INSERT INTO `patients` VALUES (1,'Giorgos','Papadopoulos','giorgospap','5678','123456789', 'giorgos@gmail.com');
+INSERT INTO `specialties` VALUES (1,'Pathologist'),(2,'Cardiologist'),(3,'Dermatologist'), (4,'Pediatrician'), (5,'Neurologist'), (6,'Ophthalmologist'), (7,'Psychiatrist'), (8,'Urologist'),  (9,'General Surgeon'),  (10,'Plastic Surgeon');
+INSERT INTO `areas` VALUES (1,'Koukaki'),(2,'Gazi'),(3,'Kolonaki'), (4,'Pangrati'), (5,'Kypseli'), (6,'Ampelokipi'), (7,'Piraeus'), (8,'Glyfada'), (9,'Chalandri'), (10,'Kifisia'), (11,'Galatsi'), (12,'Peristeri');

@@ -50,20 +50,20 @@ public class DoctorDataValidator {
 			}
 
 	public boolean usernameExistsMoreThanOnce(String username, ArrayList<String> usernames) {
-		boolean existsMoreThanOnce = false;
-		int counter = 0;
+			boolean existsMoreThanOnce = false;
+			int counter = 0;
 
-		for(int i = 0; i < usernames.size(); i++) {
-			if (username.equals(usernames.get(i))) {
-				counter++;
+			for(int i = 0; i < usernames.size(); i++) {
+				if (username.equals(usernames.get(i))) {
+					counter++;
+				}
 			}
-		}
 
-		if (counter > 1) {
-			existsMoreThanOnce = true;
-		}
+			if (counter > 1) {
+				existsMoreThanOnce = true;
+			}
 
-		return existsMoreThanOnce;
+			return existsMoreThanOnce;
 	}
 
 
@@ -94,20 +94,20 @@ public class DoctorDataValidator {
 		}
 
 	public boolean emailExistsMoreThanOnce(String email, ArrayList<String> emails) {
-			boolean existsMoreThanOnce = false;
-			int counter = 0;
+				boolean existsMoreThanOnce = false;
+				int counter = 0;
 
-			for(int i = 0; i < emails.size(); i++) {
-				if (email.equals(emails.get(i))) {
-					counter++;
+				for(int i = 0; i < emails.size(); i++) {
+					if (email.equals(emails.get(i))) {
+						counter++;
+					}
 				}
-			}
 
-			if (counter > 1) {
-				existsMoreThanOnce = true;
-			}
+				if (counter > 1) {
+					existsMoreThanOnce = true;
+				}
 
-			return existsMoreThanOnce;
+				return existsMoreThanOnce;
 	}
 
 
