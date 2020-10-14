@@ -93,7 +93,7 @@
 <%	
 	if(doctors.size() == 0) {
 %>
-		<h4 id="not-found">There are no <%=specialtySearched%>s in <%=areaSearched%>!</h4>
+		<h4 id="not-found">There are no doctors found with the specialty and area you searched for!</h4>
 <%
 	} else {
 		for(Doctor doctorObj: doctors) {
