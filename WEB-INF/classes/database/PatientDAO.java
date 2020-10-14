@@ -103,6 +103,7 @@ public class PatientDAO {
 
 	} // End of updatePatient
 
+
 	public ArrayList<String> getAllPatientEmails(String email) throws Exception {
 		ArrayList<String> emails = new ArrayList<String>();
 
